@@ -1,1593 +1,1602 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <title>PrivateDart | Developer Portfolio</title>
-
-  <meta
-    name="description"
-    content="PrivateDart - Student Developer building web applications, games, AI projects, productivity tools and IoT experiments."
-  />
-
-  <style>
-    :root {
-      --bg: #050816;
-      --bg-secondary: #0a1024;
-      --card: rgba(16, 24, 48, 0.65);
-      --card-solid: #101831;
-      --text: #f4f7ff;
-      --muted: #a6b0cc;
-      --primary: #38bdf8;
-      --primary-dark: #0284c7;
-      --purple: #8b5cf6;
-      --green: #22c55e;
-      --border: rgba(148, 163, 184, 0.18);
-      --shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
-    }
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      font-family: Inter, Arial, Helvetica, sans-serif;
-      background:
-        radial-gradient(circle at top left, rgba(56, 189, 248, 0.12), transparent 30%),
-        radial-gradient(circle at 90% 30%, rgba(139, 92, 246, 0.12), transparent 25%),
-        var(--bg);
-      color: var(--text);
-      overflow-x: hidden;
-    }
-
-    a {
-      text-decoration: none;
-      color: inherit;
-    }
-
-    /* =========================
-       NAVBAR
-    ========================= */
-
-    nav {
-      position: fixed;
-      top: 0;
-      width: 100%;
-      z-index: 1000;
-      backdrop-filter: blur(18px);
-      background: rgba(5, 8, 22, 0.75);
-      border-bottom: 1px solid var(--border);
-    }
-
-    .nav-container {
-      max-width: 1200px;
-      margin: auto;
-      padding: 18px 25px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-
-    .logo {
-      font-size: 1.3rem;
-      font-weight: 800;
-      letter-spacing: -0.5px;
-    }
-
-    .logo span {
-      color: var(--primary);
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 25px;
-      align-items: center;
-    }
-
-    .nav-links a {
-      color: var(--muted);
-      font-size: 0.9rem;
-      transition: 0.3s;
-    }
-
-    .nav-links a:hover {
-      color: var(--primary);
-    }
-
-    .github-nav {
-      padding: 9px 16px;
-      border-radius: 9px;
-      border: 1px solid var(--border);
-      color: white !important;
-    }
-
-    .menu-btn {
-      display: none;
-      background: transparent;
-      color: white;
-      border: none;
-      font-size: 1.5rem;
-      cursor: pointer;
-    }
-
-    /* =========================
-       HERO
-    ========================= */
-
-    .hero {
-      min-height: 100vh;
-      max-width: 1200px;
-      margin: auto;
-      padding: 150px 25px 80px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-    }
-
-    .hero-content {
-      max-width: 900px;
-    }
-
-    .status {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 8px 15px;
-      border: 1px solid rgba(56, 189, 248, 0.25);
-      background: rgba(56, 189, 248, 0.08);
-      border-radius: 50px;
-      color: var(--primary);
-      font-size: 0.85rem;
-      margin-bottom: 25px;
-    }
-
-    .status-dot {
-      width: 8px;
-      height: 8px;
-      background: var(--green);
-      border-radius: 50%;
-      box-shadow: 0 0 12px var(--green);
-      animation: pulse 1.5s infinite;
-    }
-
-    .hero h1 {
-      font-size: clamp(3rem, 9vw, 7rem);
-      line-height: 1;
-      letter-spacing: -4px;
-      margin-bottom: 20px;
-    }
-
-    .hero h1 span {
-      background: linear-gradient(
-        90deg,
-        var(--primary),
-        var(--purple),
-        var(--primary)
-      );
-      background-size: 200%;
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      animation: gradientMove 5s linear infinite;
-    }
-
-    .hero-subtitle {
-      font-size: clamp(1.1rem, 3vw, 1.5rem);
-      color: var(--primary);
-      margin-bottom: 20px;
-      min-height: 35px;
-    }
-
-    .hero-description {
-      max-width: 700px;
-      margin: auto;
-      color: var(--muted);
-      font-size: 1.05rem;
-      line-height: 1.8;
-    }
-
-    .hero-buttons {
-      margin-top: 35px;
-      display: flex;
-      justify-content: center;
-      gap: 15px;
-      flex-wrap: wrap;
-    }
-
-    .btn {
-      padding: 13px 22px;
-      border-radius: 10px;
-      font-weight: 600;
-      transition: 0.3s;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .btn-primary {
-      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-      color: #00131f;
-    }
-
-    .btn-primary:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 15px 35px rgba(56, 189, 248, 0.2);
-    }
-
-    .btn-secondary {
-      border: 1px solid var(--border);
-      background: rgba(255, 255, 255, 0.03);
-    }
-
-    .btn-secondary:hover {
-      border-color: var(--primary);
-      transform: translateY(-3px);
-    }
-
-    .scroll-indicator {
-      margin-top: 65px;
-      color: var(--muted);
-      font-size: 0.8rem;
-      animation: float 2s infinite ease-in-out;
-    }
-
-    /* =========================
-       GENERAL
-    ========================= */
-
-    section {
-      max-width: 1200px;
-      margin: auto;
-      padding: 100px 25px;
-    }
-
-    .section-tag {
-      color: var(--primary);
-      font-size: 0.85rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      margin-bottom: 12px;
-    }
-
-    .section-title {
-      font-size: clamp(2rem, 5vw, 3.2rem);
-      margin-bottom: 20px;
-      letter-spacing: -1.5px;
-    }
-
-    .section-description {
-      color: var(--muted);
-      line-height: 1.8;
-      max-width: 700px;
-      margin-bottom: 45px;
-    }
-
-    /* =========================
-       ABOUT
-    ========================= */
-
-    .about-grid {
-      display: grid;
-      grid-template-columns: 1.2fr 0.8fr;
-      gap: 25px;
-    }
-
-    .about-card,
-    .stats-card {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 20px;
-      padding: 30px;
-      backdrop-filter: blur(12px);
-    }
-
-    .about-card p {
-      color: var(--muted);
-      line-height: 1.9;
-      margin-bottom: 20px;
-    }
-
-    .focus-list {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 12px;
-      margin-top: 25px;
-    }
-
-    .focus-item {
-      padding: 14px;
-      background: rgba(255, 255, 255, 0.03);
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      color: var(--muted);
-    }
-
-    .stats-card {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      gap: 20px;
-    }
-
-    .stat {
-      padding: 18px;
-      border-left: 3px solid var(--primary);
-      background: rgba(56, 189, 248, 0.05);
-    }
-
-    .stat h3 {
-      font-size: 1.8rem;
-      color: var(--primary);
-    }
-
-    .stat p {
-      color: var(--muted);
-      font-size: 0.9rem;
-      margin-top: 4px;
-    }
-
-    /* =========================
-       TECH STACK
-    ========================= */
-
-    .tech-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 15px;
-    }
-
-    .tech-card {
-      padding: 22px;
-      border: 1px solid var(--border);
-      background: var(--card);
-      border-radius: 15px;
-      transition: 0.3s;
-    }
-
-    .tech-card:hover {
-      transform: translateY(-6px);
-      border-color: var(--primary);
-      background: rgba(56, 189, 248, 0.05);
-    }
-
-    .tech-icon {
-      font-size: 2rem;
-      margin-bottom: 10px;
-    }
-
-    .tech-card h3 {
-      font-size: 1rem;
-      margin-bottom: 7px;
-    }
-
-    .tech-card p {
-      color: var(--muted);
-      font-size: 0.85rem;
-      line-height: 1.5;
-    }
-
-    /* =========================
-       PROJECTS
-    ========================= */
-
-    .projects-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
-    }
-
-    .project-card {
-      position: relative;
-      display: flex;
-      flex-direction: column;
-      min-height: 360px;
-      padding: 25px;
-      background: linear-gradient(
-        145deg,
-        rgba(18, 27, 55, 0.8),
-        rgba(8, 13, 30, 0.9)
-      );
-      border: 1px solid var(--border);
-      border-radius: 20px;
-      transition: 0.35s;
-      overflow: hidden;
-    }
-
-    .project-card::before {
-      content: "";
-      position: absolute;
-      width: 180px;
-      height: 180px;
-      background: radial-gradient(
-        circle,
-        rgba(56, 189, 248, 0.12),
-        transparent 70%
-      );
-      top: -60px;
-      right: -60px;
-    }
-
-    .project-card:hover {
-      transform: translateY(-8px);
-      border-color: rgba(56, 189, 248, 0.55);
-      box-shadow: var(--shadow);
-    }
-
-    .project-top {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 22px;
-    }
-
-    .project-icon {
-      width: 50px;
-      height: 50px;
-      border-radius: 14px;
-      display: grid;
-      place-items: center;
-      font-size: 1.5rem;
-      background: rgba(56, 189, 248, 0.1);
-      border: 1px solid rgba(56, 189, 248, 0.15);
-    }
-
-    .project-number {
-      color: var(--muted);
-      font-size: 0.8rem;
-    }
-
-    .project-card h3 {
-      font-size: 1.35rem;
-      margin-bottom: 12px;
-    }
-
-    .project-card p {
-      color: var(--muted);
-      font-size: 0.92rem;
-      line-height: 1.7;
-      flex-grow: 1;
-    }
-
-    .tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 7px;
-      margin: 20px 0;
-    }
-
-    .tag {
-      padding: 6px 10px;
-      border-radius: 6px;
-      font-size: 0.72rem;
-      color: var(--primary);
-      background: rgba(56, 189, 248, 0.08);
-      border: 1px solid rgba(56, 189, 248, 0.12);
-    }
-
-    .project-links {
-      display: flex;
-      gap: 10px;
-    }
-
-    .project-link {
-      flex: 1;
-      text-align: center;
-      padding: 10px;
-      border-radius: 8px;
-      font-size: 0.82rem;
-      font-weight: 600;
-      border: 1px solid var(--border);
-      transition: 0.3s;
-    }
-
-    .project-link.demo {
-      background: rgba(56, 189, 248, 0.12);
-      color: var(--primary);
-    }
-
-    .project-link:hover {
-      border-color: var(--primary);
-    }
-
-    /* =========================
-       ACCOUNTS
-    ========================= */
-
-    .accounts-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
-    }
-
-    .account-card {
-      padding: 28px;
-      border: 1px solid var(--border);
-      border-radius: 18px;
-      background: var(--card);
-      transition: 0.3s;
-    }
-
-    .account-card:hover {
-      transform: translateY(-5px);
-      border-color: var(--primary);
-    }
-
-    .account-card h3 {
-      margin-bottom: 10px;
-    }
-
-    .account-card p {
-      color: var(--muted);
-      line-height: 1.6;
-      margin-bottom: 20px;
-    }
-
-    .account-card a {
-      color: var(--primary);
-      font-size: 0.9rem;
-      font-weight: 600;
-    }
-
-    /* =========================
-       CONTACT
-    ========================= */
-
-    .contact-box {
-      padding: 60px 30px;
-      text-align: center;
-      border-radius: 25px;
-      border: 1px solid var(--border);
-      background:
-        radial-gradient(
-          circle at top,
-          rgba(56, 189, 248, 0.12),
-          transparent 40%
-        ),
-        var(--card);
-    }
-
-    .contact-box p {
-      max-width: 600px;
-      margin: 20px auto 30px;
-      color: var(--muted);
-      line-height: 1.8;
-    }
-
-    .contact-links {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 12px;
-    }
-
-    /* =========================
-       FOOTER
-    ========================= */
-
-    footer {
-      border-top: 1px solid var(--border);
-      padding: 30px 25px;
-      text-align: center;
-      color: var(--muted);
-      font-size: 0.85rem;
-    }
-
-    footer span {
-      color: var(--primary);
-    }
-
-    /* =========================
-       ANIMATIONS
-    ========================= */
-
-    @keyframes pulse {
-      50% {
-        opacity: 0.4;
-        transform: scale(0.8);
-      }
-    }
-
-    @keyframes float {
-      50% {
-        transform: translateY(8px);
-      }
-    }
-
-    @keyframes gradientMove {
-      to {
-        background-position: 200%;
-      }
-    }
-
-    /* =========================
-       RESPONSIVE
-    ========================= */
-
-    @media (max-width: 900px) {
-      .projects-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .tech-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .about-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .accounts-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    @media (max-width: 650px) {
-      .nav-links {
-        display: none;
-      }
-
-      .menu-btn {
-        display: block;
-      }
-
-      .nav-links.active {
-        display: flex;
-        position: absolute;
-        top: 70px;
-        left: 0;
-        width: 100%;
-        padding: 20px;
-        flex-direction: column;
-        background: #080d1d;
-        border-bottom: 1px solid var(--border);
-      }
-
-      .projects-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .focus-list {
-        grid-template-columns: 1fr;
-      }
-
-      .hero {
-        padding-top: 130px;
-      }
-
-      .hero h1 {
-        letter-spacing: -2px;
-      }
-
-      section {
-        padding: 75px 20px;
-      }
-
-      .tech-grid {
-        grid-template-columns: 1fr 1fr;
-      }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>PrivateDart | Developer Portfolio</title>
+
+<meta name="description"
+content="PrivateDart — Student Developer building web apps, games, productivity tools, AI experiments and IoT projects.">
+
+<meta name="theme-color" content="#050816">
+
+<style>
+
+:root{
+--bg:#050816;
+--bg2:#080d1d;
+--card:rgba(15,23,48,.72);
+--text:#f8fafc;
+--muted:#94a3b8;
+--primary:#38bdf8;
+--primary2:#0284c7;
+--purple:#8b5cf6;
+--green:#22c55e;
+--border:rgba(148,163,184,.16);
+--shadow:0 25px 70px rgba(0,0,0,.4);
+}
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+html{
+scroll-behavior:smooth;
+}
+
+body{
+background:
+radial-gradient(circle at 10% 10%,rgba(56,189,248,.12),transparent 28%),
+radial-gradient(circle at 90% 25%,rgba(139,92,246,.12),transparent 30%),
+var(--bg);
+color:var(--text);
+font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+overflow-x:hidden;
+}
+
+a{
+text-decoration:none;
+color:inherit;
+}
+
+/* ================= NAV ================= */
+
+nav{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+z-index:1000;
+background:rgba(5,8,22,.72);
+backdrop-filter:blur(20px);
+border-bottom:1px solid var(--border);
+}
+
+.nav-container{
+max-width:1200px;
+margin:auto;
+padding:17px 24px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+}
+
+.logo{
+font-size:1.3rem;
+font-weight:900;
+letter-spacing:-.7px;
+}
+
+.logo span{
+color:var(--primary);
+}
+
+.nav-links{
+display:flex;
+align-items:center;
+gap:24px;
+}
+
+.nav-links a{
+color:var(--muted);
+font-size:.9rem;
+transition:.25s;
+}
+
+.nav-links a:hover{
+color:var(--primary);
+}
+
+.github-nav{
+padding:9px 15px;
+border:1px solid var(--border);
+border-radius:9px;
+color:white!important;
+background:rgba(255,255,255,.03);
+}
+
+.menu-btn{
+display:none;
+border:none;
+background:none;
+color:white;
+font-size:1.5rem;
+cursor:pointer;
+}
+
+/* ================= HERO ================= */
+
+.hero{
+min-height:100vh;
+max-width:1200px;
+margin:auto;
+padding:150px 25px 80px;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+}
+
+.hero-content{
+max-width:900px;
+}
+
+.status{
+display:inline-flex;
+align-items:center;
+gap:9px;
+padding:8px 15px;
+border-radius:50px;
+background:rgba(56,189,248,.07);
+border:1px solid rgba(56,189,248,.2);
+color:var(--primary);
+font-size:.82rem;
+margin-bottom:25px;
+}
+
+.status-dot{
+width:8px;
+height:8px;
+border-radius:50%;
+background:var(--green);
+box-shadow:0 0 15px var(--green);
+animation:pulse 1.5s infinite;
+}
+
+.hero h1{
+font-size:clamp(3rem,9vw,7rem);
+line-height:.95;
+letter-spacing:-5px;
+margin-bottom:25px;
+}
+
+.hero h1 span{
+background:linear-gradient(90deg,var(--primary),var(--purple),var(--primary));
+background-size:200%;
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+animation:gradient 5s linear infinite;
+}
+
+.hero-subtitle{
+color:var(--primary);
+font-size:clamp(1.1rem,3vw,1.45rem);
+min-height:35px;
+margin-bottom:20px;
+}
+
+.hero-description{
+max-width:700px;
+margin:auto;
+color:var(--muted);
+line-height:1.8;
+font-size:1rem;
+}
+
+.hero-buttons{
+display:flex;
+justify-content:center;
+flex-wrap:wrap;
+gap:13px;
+margin-top:32px;
+}
+
+.btn{
+display:inline-flex;
+align-items:center;
+justify-content:center;
+gap:8px;
+padding:12px 20px;
+border-radius:10px;
+font-weight:700;
+transition:.3s;
+}
+
+.btn-primary{
+background:linear-gradient(135deg,var(--primary),var(--primary2));
+color:#00131d;
+}
+
+.btn-primary:hover{
+transform:translateY(-3px);
+box-shadow:0 15px 35px rgba(56,189,248,.2);
+}
+
+.btn-secondary{
+border:1px solid var(--border);
+background:rgba(255,255,255,.03);
+}
+
+.btn-secondary:hover{
+transform:translateY(-3px);
+border-color:var(--primary);
+}
+
+.scroll{
+margin-top:60px;
+color:var(--muted);
+font-size:.78rem;
+animation:float 2s infinite;
+}
+
+/* ================= SECTIONS ================= */
+
+section{
+max-width:1200px;
+margin:auto;
+padding:100px 25px;
+}
+
+.section-tag{
+color:var(--primary);
+font-size:.78rem;
+font-weight:800;
+letter-spacing:2px;
+text-transform:uppercase;
+margin-bottom:10px;
+}
+
+.section-title{
+font-size:clamp(2rem,5vw,3.2rem);
+letter-spacing:-2px;
+margin-bottom:17px;
+}
+
+.section-description{
+max-width:720px;
+color:var(--muted);
+line-height:1.8;
+margin-bottom:40px;
+}
+
+/* ================= ABOUT ================= */
+
+.about-grid{
+display:grid;
+grid-template-columns:1.2fr .8fr;
+gap:20px;
+}
+
+.glass{
+background:var(--card);
+border:1px solid var(--border);
+border-radius:20px;
+padding:30px;
+backdrop-filter:blur(14px);
+}
+
+.about-card p{
+color:var(--muted);
+line-height:1.85;
+margin-bottom:20px;
+}
+
+.focus-grid{
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:10px;
+}
+
+.focus{
+padding:13px;
+border-radius:9px;
+background:rgba(255,255,255,.03);
+border:1px solid var(--border);
+color:var(--muted);
+font-size:.88rem;
+}
+
+.stats{
+display:flex;
+flex-direction:column;
+justify-content:center;
+gap:15px;
+}
+
+.stat{
+padding:18px;
+border-left:3px solid var(--primary);
+background:rgba(56,189,248,.04);
+}
+
+.stat h3{
+color:var(--primary);
+font-size:1.8rem;
+}
+
+.stat p{
+color:var(--muted);
+font-size:.85rem;
+margin-top:4px;
+}
+
+/* ================= TECH ================= */
+
+.tech-grid{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:14px;
+}
+
+.tech{
+padding:22px;
+background:var(--card);
+border:1px solid var(--border);
+border-radius:15px;
+transition:.3s;
+}
+
+.tech:hover{
+transform:translateY(-6px);
+border-color:var(--primary);
+background:rgba(56,189,248,.05);
+}
+
+.tech-icon{
+font-size:1.9rem;
+margin-bottom:9px;
+}
+
+.tech h3{
+font-size:1rem;
+margin-bottom:6px;
+}
+
+.tech p{
+color:var(--muted);
+font-size:.8rem;
+line-height:1.5;
+}
+
+/* ================= PROJECTS ================= */
+
+.projects-grid{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:18px;
+}
+
+.project{
+position:relative;
+display:flex;
+flex-direction:column;
+min-height:360px;
+padding:25px;
+border-radius:20px;
+background:linear-gradient(145deg,rgba(18,27,55,.8),rgba(7,12,28,.95));
+border:1px solid var(--border);
+overflow:hidden;
+transition:.35s;
+}
+
+.project::before{
+content:"";
+position:absolute;
+width:190px;
+height:190px;
+top:-80px;
+right:-80px;
+background:radial-gradient(circle,rgba(56,189,248,.14),transparent 70%);
+}
+
+.project:hover{
+transform:translateY(-8px);
+border-color:rgba(56,189,248,.55);
+box-shadow:var(--shadow);
+}
+
+.project-head{
+display:flex;
+justify-content:space-between;
+align-items:center;
+margin-bottom:20px;
+}
+
+.project-icon{
+width:48px;
+height:48px;
+display:grid;
+place-items:center;
+border-radius:13px;
+font-size:1.45rem;
+background:rgba(56,189,248,.09);
+border:1px solid rgba(56,189,248,.14);
+}
+
+.project-number{
+color:var(--muted);
+font-size:.75rem;
+}
+
+.project h3{
+font-size:1.3rem;
+margin-bottom:10px;
+}
+
+.project p{
+color:var(--muted);
+font-size:.88rem;
+line-height:1.7;
+flex-grow:1;
+}
+
+.tags{
+display:flex;
+flex-wrap:wrap;
+gap:6px;
+margin:18px 0;
+}
+
+.tag{
+padding:5px 8px;
+border-radius:5px;
+color:var(--primary);
+background:rgba(56,189,248,.07);
+border:1px solid rgba(56,189,248,.12);
+font-size:.68rem;
+}
+
+.project-links{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:8px;
+}
+
+.project-links.single{
+grid-template-columns:1fr;
+}
+
+.project-link{
+text-align:center;
+padding:10px;
+border-radius:8px;
+border:1px solid var(--border);
+font-size:.78rem;
+font-weight:700;
+transition:.25s;
+}
+
+.project-link:hover{
+border-color:var(--primary);
+}
+
+.demo{
+color:var(--primary);
+background:rgba(56,189,248,.08);
+}
+
+.github{
+background:rgba(255,255,255,.03);
+}
+
+/* ================= GITHUB ================= */
+
+.accounts{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:18px;
+}
+
+.account{
+padding:28px;
+border:1px solid var(--border);
+background:var(--card);
+border-radius:18px;
+transition:.3s;
+}
+
+.account:hover{
+transform:translateY(-5px);
+border-color:var(--primary);
+}
+
+.account h3{
+margin-bottom:10px;
+}
+
+.account p{
+color:var(--muted);
+line-height:1.6;
+font-size:.9rem;
+margin-bottom:18px;
+}
+
+.account a{
+color:var(--primary);
+font-weight:700;
+font-size:.85rem;
+}
+
+/* ================= CONTACT ================= */
+
+.contact-box{
+padding:60px 25px;
+text-align:center;
+border:1px solid var(--border);
+border-radius:25px;
+background:
+radial-gradient(circle at top,rgba(56,189,248,.12),transparent 45%),
+var(--card);
+}
+
+.contact-box .section-description{
+margin:15px auto 28px;
+}
+
+.contact-links{
+display:flex;
+justify-content:center;
+flex-wrap:wrap;
+gap:10px;
+}
+
+/* ================= FOOTER ================= */
+
+footer{
+border-top:1px solid var(--border);
+text-align:center;
+padding:30px 20px;
+color:var(--muted);
+font-size:.8rem;
+}
+
+footer span{
+color:var(--primary);
+}
+
+/* ================= ANIMATION ================= */
+
+@keyframes pulse{
+50%{
+opacity:.4;
+transform:scale(.8);
+}
+}
+
+@keyframes float{
+50%{
+transform:translateY(7px);
+}
+}
+
+@keyframes gradient{
+to{
+background-position:200%;
+}
+}
+
+/* ================= MOBILE ================= */
+
+@media(max-width:900px){
+
+.projects-grid{
+grid-template-columns:repeat(2,1fr);
+}
+
+.tech-grid{
+grid-template-columns:repeat(2,1fr);
+}
+
+.about-grid{
+grid-template-columns:1fr;
+}
+
+.accounts{
+grid-template-columns:1fr;
+}
+
+}
+
+@media(max-width:650px){
+
+.nav-links{
+display:none;
+}
+
+.nav-links.active{
+display:flex;
+position:absolute;
+top:68px;
+left:0;
+width:100%;
+padding:20px;
+flex-direction:column;
+background:#080d1d;
+border-bottom:1px solid var(--border);
+}
+
+.menu-btn{
+display:block;
+}
+
+.hero h1{
+letter-spacing:-3px;
+}
+
+section{
+padding:75px 20px;
+}
+
+.projects-grid{
+grid-template-columns:1fr;
+}
+
+.tech-grid{
+grid-template-columns:repeat(2,1fr);
+}
+
+.focus-grid{
+grid-template-columns:1fr;
+}
+
+}
+
+</style>
 </head>
 
 <body>
 
-  <!-- NAVBAR -->
+<!-- ================= NAVIGATION ================= -->
 
-  <nav>
-    <div class="nav-container">
+<nav>
 
-      <a href="#" class="logo">
-        Private<span>Dart</span>
-      </a>
+<div class="nav-container">
 
-      <div class="nav-links" id="navLinks">
-        <a href="#about">About</a>
-        <a href="#stack">Stack</a>
-        <a href="#projects">Projects</a>
-        <a href="#accounts">GitHub</a>
-        <a href="#contact">Contact</a>
+<a href="#" class="logo">
+Private<span>Dart</span>
+</a>
 
-        <a
-          href="https://github.com/dev-l-k"
-          target="_blank"
-          class="github-nav"
-        >
-          GitHub ↗
-        </a>
-      </div>
+<div class="nav-links" id="navLinks">
 
-      <button class="menu-btn" onclick="toggleMenu()">
-        ☰
-      </button>
+<a href="#about">About</a>
+<a href="#stack">Stack</a>
+<a href="#projects">Projects</a>
+<a href="#github">GitHub</a>
+<a href="#contact">Contact</a>
 
-    </div>
-  </nav>
+<a
+href="https://github.com/dev-l-k"
+target="_blank"
+class="github-nav">
+GitHub ↗
+</a>
 
+</div>
 
-  <!-- HERO -->
+<button
+class="menu-btn"
+onclick="toggleMenu()">
+☰
+</button>
 
-  <main class="hero">
+</div>
 
-    <div class="hero-content">
+</nav>
 
-      <div class="status">
-        <span class="status-dot"></span>
-        Available for learning & building
-      </div>
 
-      <h1>
-        Hey, I'm <span>PrivateDart</span>
-      </h1>
+<!-- ================= HERO ================= -->
 
-      <div class="hero-subtitle">
-        <span id="typing"></span>
-      </div>
+<main class="hero">
 
-      <p class="hero-description">
-        A student developer from Kerala, India, building web applications,
-        browser games, productivity tools, AI-powered experiments and IoT
-        projects.
-      </p>
+<div class="hero-content">
 
-      <div class="hero-buttons">
+<div class="status">
+<span class="status-dot"></span>
+Building & experimenting
+</div>
 
-        <a href="#projects" class="btn btn-primary">
-          🚀 Explore Projects
-        </a>
+<h1>
+Hey, I'm <span>PrivateDart</span>
+</h1>
 
-        <a
-          href="https://github.com/dev-l-k"
-          target="_blank"
-          class="btn btn-secondary"
-        >
-          💻 GitHub Profile
-        </a>
+<div class="hero-subtitle">
+<span id="typing"></span>
+</div>
 
-      </div>
+<p class="hero-description">
 
-      <div class="scroll-indicator">
-        ↓ Scroll to explore
-      </div>
+A student developer from Kerala, India building
+web applications, browser games, productivity tools,
+AI experiments and IoT projects.
 
-    </div>
+</p>
 
-  </main>
+<div class="hero-buttons">
 
+<a href="#projects"
+class="btn btn-primary">
+🚀 Explore Projects
+</a>
 
-  <!-- ABOUT -->
+<a
+href="https://github.com/dev-l-k"
+target="_blank"
+class="btn btn-secondary">
+💻 GitHub
+</a>
 
-  <section id="about">
+</div>
 
-    <div class="section-tag">
-      01 — ABOUT ME
-    </div>
+<div class="scroll">
+↓ Scroll to explore
+</div>
 
-    <h2 class="section-title">
-      Building ideas into working projects.
-    </h2>
+</div>
 
-    <p class="section-description">
-      I enjoy experimenting with technology and turning concepts into
-      functional applications. My projects range from browser-based games
-      and productivity tools to Progressive Web Apps, AI experiments and
-      Internet of Things projects.
-    </p>
+</main>
 
-    <div class="about-grid">
 
-      <div class="about-card">
+<!-- ================= ABOUT ================= -->
 
-        <h3>What I Build</h3>
+<section id="about">
 
-        <p>
-          I focus on rapid experimentation, modern web technologies and
-          AI-assisted development workflows.
-        </p>
+<div class="section-tag">
+01 — ABOUT ME
+</div>
 
-        <div class="focus-list">
+<h2 class="section-title">
+Building ideas into working projects.
+</h2>
 
-          <div class="focus-item">
-            🌐 Web Applications
-          </div>
+<p class="section-description">
 
-          <div class="focus-item">
-            🎮 Browser Games
-          </div>
+I enjoy experimenting with technology and turning
+concepts into functional applications.
 
-          <div class="focus-item">
-            🤖 AI Experiments
-          </div>
+My projects cover browser games, productivity tools,
+PWAs, AI experiments and IoT.
 
-          <div class="focus-item">
-            📱 PWAs
-          </div>
+</p>
 
-          <div class="focus-item">
-            📄 Productivity Tools
-          </div>
+<div class="about-grid">
 
-          <div class="focus-item">
-            🔌 IoT Projects
-          </div>
+<div class="glass about-card">
 
-        </div>
+<h3>What I Build</h3>
 
-      </div>
+<p>
+I focus on rapid prototyping, modern web technologies
+and AI-assisted development workflows.
+</p>
 
+<div class="focus-grid">
 
-      <div class="stats-card">
+<div class="focus">🌐 Web Applications</div>
+<div class="focus">🎮 Browser Games</div>
+<div class="focus">🤖 AI Experiments</div>
+<div class="focus">📱 Progressive Web Apps</div>
+<div class="focus">📄 Productivity Tools</div>
+<div class="focus">🔌 IoT Projects</div>
 
-        <div class="stat">
-          <h3>11+</h3>
-          <p>Public Projects & Experiments</p>
-        </div>
+</div>
 
-        <div class="stat">
-          <h3>3</h3>
-          <p>GitHub Accounts</p>
-        </div>
+</div>
 
-        <div class="stat">
-          <h3>∞</h3>
-          <p>Ideas to Explore</p>
-        </div>
+<div class="glass stats">
 
-      </div>
+<div class="stat">
+<h3>11+</h3>
+<p>Projects & Experiments</p>
+</div>
 
-    </div>
+<div class="stat">
+<h3>3</h3>
+<p>GitHub Accounts</p>
+</div>
 
-  </section>
+<div class="stat">
+<h3>∞</h3>
+<p>Ideas to Build</p>
+</div>
 
+</div>
 
-  <!-- TECH STACK -->
+</div>
 
-  <section id="stack">
+</section>
 
-    <div class="section-tag">
-      02 — TECH STACK
-    </div>
 
-    <h2 class="section-title">
-      Tools I use to build.
-    </h2>
+<!-- ================= TECH STACK ================= -->
 
-    <p class="section-description">
-      Technologies and workflows used across my projects and experiments.
-    </p>
+<section id="stack">
 
-    <div class="tech-grid">
+<div class="section-tag">
+02 — TECH STACK
+</div>
 
-      <div class="tech-card">
-        <div class="tech-icon">🌐</div>
-        <h3>HTML5</h3>
-        <p>Semantic and responsive web interfaces.</p>
-      </div>
+<h2 class="section-title">
+Tools I use to build.
+</h2>
 
-      <div class="tech-card">
-        <div class="tech-icon">🎨</div>
-        <h3>CSS3</h3>
-        <p>Responsive layouts and modern UI design.</p>
-      </div>
+<p class="section-description">
+Technologies and workflows used across my projects.
+</p>
 
-      <div class="tech-card">
-        <div class="tech-icon">⚡</div>
-        <h3>JavaScript</h3>
-        <p>Interactive applications and browser tools.</p>
-      </div>
+<div class="tech-grid">
 
-      <div class="tech-card">
-        <div class="tech-icon">🐍</div>
-        <h3>Python</h3>
-        <p>Automation and IoT experiments.</p>
-      </div>
+<div class="tech">
+<div class="tech-icon">🌐</div>
+<h3>HTML5</h3>
+<p>Semantic and responsive interfaces.</p>
+</div>
 
-      <div class="tech-card">
-        <div class="tech-icon">🤖</div>
-        <h3>AI Development</h3>
-        <p>AI-assisted rapid prototyping workflows.</p>
-      </div>
+<div class="tech">
+<div class="tech-icon">🎨</div>
+<h3>CSS3</h3>
+<p>Modern responsive UI design.</p>
+</div>
 
-      <div class="tech-card">
-        <div class="tech-icon">📱</div>
-        <h3>PWA</h3>
-        <p>Installable and offline-capable web apps.</p>
-      </div>
+<div class="tech">
+<div class="tech-icon">⚡</div>
+<h3>JavaScript</h3>
+<p>Interactive browser applications.</p>
+</div>
 
-      <div class="tech-card">
-        <div class="tech-icon">🔌</div>
-        <h3>IoT</h3>
-        <p>Connected devices and smart experiments.</p>
-      </div>
+<div class="tech">
+<div class="tech-icon">🐍</div>
+<h3>Python</h3>
+<p>Automation and IoT experiments.</p>
+</div>
 
-      <div class="tech-card">
-        <div class="tech-icon">☁️</div>
-        <h3>Vercel & GitHub</h3>
-        <p>Deployment, version control and hosting.</p>
-      </div>
+<div class="tech">
+<div class="tech-icon">🤖</div>
+<h3>AI Development</h3>
+<p>AI-assisted development workflows.</p>
+</div>
 
-    </div>
+<div class="tech">
+<div class="tech-icon">📱</div>
+<h3>PWA</h3>
+<p>Installable web applications.</p>
+</div>
 
-  </section>
+<div class="tech">
+<div class="tech-icon">🔌</div>
+<h3>IoT</h3>
+<p>Connected device experiments.</p>
+</div>
 
+<div class="tech">
+<div class="tech-icon">☁️</div>
+<h3>GitHub & Vercel</h3>
+<p>Version control and deployment.</p>
+</div>
 
-  <!-- PROJECTS -->
+</div>
 
-  <section id="projects">
+</section>
 
-    <div class="section-tag">
-      03 — FEATURED PROJECTS
-    </div>
 
-    <h2 class="section-title">
-      Things I've built.
-    </h2>
+<!-- ================= PROJECTS ================= -->
 
-    <p class="section-description">
-      A selection of projects across games, web tools, productivity
-      applications and technology experiments.
-    </p>
+<section id="projects">
 
+<div class="section-tag">
+03 — PROJECTS
+</div>
 
-    <div class="projects-grid">
+<h2 class="section-title">
+Things I've built.
+</h2>
 
+<p class="section-description">
+Explore my projects across games, web applications,
+productivity tools and technology experiments.
+</p>
 
-      <!-- CHESS -->
+<div class="projects-grid">
 
-      <article class="project-card">
 
-        <div class="project-top">
-          <div class="project-icon">♟️</div>
-          <span class="project-number">01</span>
-        </div>
+<!-- FIREWORK -->
 
-        <h3>Chess Royale</h3>
+<article class="project">
 
-        <p>
-          A browser-based chess experience with multiple AI difficulty
-          levels, Minimax, Alpha-Beta pruning and Stockfish-powered
-          gameplay.
-        </p>
+<div class="project-head">
+<div class="project-icon">🎆</div>
+<span class="project-number">01</span>
+</div>
 
-        <div class="tags">
-          <span class="tag">HTML</span>
-          <span class="tag">CSS</span>
-          <span class="tag">JavaScript</span>
-          <span class="tag">Stockfish</span>
-        </div>
+<h3>Firework</h3>
 
-        <div class="project-links">
-          <a
-            href="https://github.com/project3421699/chess"
-            target="_blank"
-            class="project-link"
-          >
-            GitHub
-          </a>
-        </div>
+<p>
+Interactive browser-based fireworks visual
+experiment with animated effects.
+</p>
 
-      </article>
+<div class="tags">
+<span class="tag">HTML</span>
+<span class="tag">CSS</span>
+<span class="tag">JavaScript</span>
+</div>
 
+<div class="project-links">
 
-      <!-- PDF -->
+<a
+href="https://dev-l-k.github.io/Firework/"
+target="_blank"
+class="project-link demo">
+🌐 Live Demo
+</a>
 
-      <article class="project-card">
+<a
+href="https://github.com/dev-l-k/Firework"
+target="_blank"
+class="project-link github">
+GitHub
+</a>
 
-        <div class="project-top">
-          <div class="project-icon">📄</div>
-          <span class="project-number">02</span>
-        </div>
+</div>
 
-        <h3>PDF Tools</h3>
+</article>
 
-        <p>
-          A privacy-focused browser PDF toolkit featuring compression,
-          extraction and client-side document processing.
-        </p>
 
-        <div class="tags">
-          <span class="tag">JavaScript</span>
-          <span class="tag">PDF.js</span>
-          <span class="tag">pdf-lib</span>
-          <span class="tag">PWA</span>
-        </div>
+<!-- GAMES NEW -->
 
-        <div class="project-links">
-          <a
-            href="https://github.com/project3421699/pdf-tools"
-            target="_blank"
-            class="project-link"
-          >
-            GitHub
-          </a>
-        </div>
+<article class="project">
 
-      </article>
+<div class="project-head">
+<div class="project-icon">🎮</div>
+<span class="project-number">02</span>
+</div>
 
+<h3>GamesNew</h3>
 
-      <!-- SHORT URL -->
+<p>
+A collection of browser games and useful mini tools
+including Sudoku, Hangman, Calculator, Calendar,
+Memory, Tic-Tac-Toe and more.
+</p>
 
-      <article class="project-card">
+<div class="tags">
+<span class="tag">HTML</span>
+<span class="tag">CSS</span>
+<span class="tag">JavaScript</span>
+<span class="tag">Games</span>
+</div>
 
-        <div class="project-top">
-          <div class="project-icon">🔗</div>
-          <span class="project-number">03</span>
-        </div>
+<div class="project-links">
 
-        <h3>ShortUrl</h3>
+<a
+href="https://dev-l-k.github.io/GamesNew/"
+target="_blank"
+class="project-link demo">
+🌐 Live Demo
+</a>
 
-        <p>
-          A URL shortening application with a modern frontend interface
-          and serverless API structure.
-        </p>
+<a
+href="https://github.com/dev-l-k/GamesNew"
+target="_blank"
+class="project-link github">
+GitHub
+</a>
 
-        <div class="tags">
-          <span class="tag">JavaScript</span>
-          <span class="tag">API</span>
-          <span class="tag">Vercel</span>
-        </div>
+</div>
 
-        <div class="project-links">
+</article>
 
-          <a
-            href="https://short-url-one-ochre.vercel.app"
-            target="_blank"
-            class="project-link demo"
-          >
-            Live Demo
-          </a>
 
-          <a
-            href="https://github.com/test3421699/ShortUrl"
-            target="_blank"
-            class="project-link"
-          >
-            GitHub
-          </a>
+<!-- MEDISTOCK -->
 
-        </div>
+<article class="project">
 
-      </article>
+<div class="project-head">
+<div class="project-icon">💊</div>
+<span class="project-number">03</span>
+</div>
 
+<h3>MediStock</h3>
 
-      <!-- LUDO -->
+<p>
+Medicine stock management Progressive Web App
+with an installable web experience.
+</p>
 
-      <article class="project-card">
+<div class="tags">
+<span class="tag">HTML</span>
+<span class="tag">JavaScript</span>
+<span class="tag">PWA</span>
+<span class="tag">Service Worker</span>
+</div>
 
-        <div class="project-top">
-          <div class="project-icon">🎲</div>
-          <span class="project-number">04</span>
-        </div>
+<div class="project-links">
 
-        <h3>LUDO</h3>
+<a
+href="https://test3421699.github.io/MediStock/"
+target="_blank"
+class="project-link demo">
+🌐 Live Demo
+</a>
 
-        <p>
-          A browser-based implementation of the classic Ludo board game
-          with interactive gameplay.
-        </p>
+<a
+href="https://github.com/test3421699/MediStock"
+target="_blank"
+class="project-link github">
+GitHub
+</a>
 
-        <div class="tags">
-          <span class="tag">HTML</span>
-          <span class="tag">CSS</span>
-          <span class="tag">JavaScript</span>
-        </div>
+</div>
 
-        <div class="project-links">
+</article>
 
-          <a
-            href="https://ludo-lilac-nu.vercel.app"
-            target="_blank"
-            class="project-link demo"
-          >
-            Live Demo
-          </a>
 
-          <a
-            href="https://github.com/project3421699/LUDO"
-            target="_blank"
-            class="project-link"
-          >
-            GitHub
-          </a>
+<!-- KERALA CURRENT BILL -->
 
-        </div>
+<article class="project">
 
-      </article>
+<div class="project-head">
+<div class="project-icon">⚡</div>
+<span class="project-number">04</span>
+</div>
 
+<h3>Kerala Current Bill</h3>
 
-      <!-- GAMES NEW -->
+<p>
+Web utility designed for calculating electricity
+bill estimates.
+</p>
 
-      <article class="project-card">
+<div class="tags">
+<span class="tag">HTML</span>
+<span class="tag">CSS</span>
+<span class="tag">JavaScript</span>
+</div>
 
-        <div class="project-top">
-          <div class="project-icon">🎮</div>
-          <span class="project-number">05</span>
-        </div>
+<div class="project-links">
 
-        <h3>GamesNew</h3>
+<a
+href="https://dev-l-k.github.io/Kerala-Current-Bill/"
+target="_blank"
+class="project-link demo">
+🌐 Live Demo
+</a>
 
-        <p>
-          A collection of browser games and interactive tools including
-          Sudoku, Hangman, Calculator, Calendar and more.
-        </p>
+<a
+href="https://github.com/dev-l-k/Kerala-Current-Bill"
+target="_blank"
+class="project-link github">
+GitHub
+</a>
 
-        <div class="tags">
-          <span class="tag">HTML</span>
-          <span class="tag">CSS</span>
-          <span class="tag">JavaScript</span>
-        </div>
+</div>
 
-        <div class="project-links">
+</article>
 
-          <a
-            href="https://github.com/dev-l-k/GamesNew"
-            target="_blank"
-            class="project-link"
-          >
-            GitHub
-          </a>
 
-        </div>
+<!-- SHORTURL -->
 
-      </article>
+<article class="project">
 
+<div class="project-head">
+<div class="project-icon">🔗</div>
+<span class="project-number">05</span>
+</div>
 
-      <!-- MEDISTOCK -->
+<h3>ShortUrl</h3>
 
-      <article class="project-card">
+<p>
+Modern URL shortening web application with
+a deployed web interface.
+</p>
 
-        <div class="project-top">
-          <div class="project-icon">💊</div>
-          <span class="project-number">06</span>
-        </div>
+<div class="tags">
+<span class="tag">HTML</span>
+<span class="tag">CSS</span>
+<span class="tag">JavaScript</span>
+<span class="tag">Vercel</span>
+</div>
 
-        <h3>MediStock</h3>
+<div class="project-links">
 
-        <p>
-          A medicine and stock management Progressive Web App experiment
-          with PWA and service worker support.
-        </p>
+<a
+href="https://short-url-one-ochre.vercel.app"
+target="_blank"
+class="project-link demo">
+▲ Live Demo
+</a>
 
-        <div class="tags">
-          <span class="tag">JavaScript</span>
-          <span class="tag">PWA</span>
-          <span class="tag">Service Worker</span>
-        </div>
+<a
+href="https://github.com/test3421699/ShortUrl"
+target="_blank"
+class="project-link github">
+GitHub
+</a>
 
-        <div class="project-links">
+</div>
 
-          <a
-            href="https://github.com/test3421699/MediStock"
-            target="_blank"
-            class="project-link"
-          >
-            GitHub
-          </a>
+</article>
 
-        </div>
 
-      </article>
+<!-- CHESS -->
 
+<article class="project">
 
-      <!-- FIREWORK -->
+<div class="project-head">
+<div class="project-icon">♟️</div>
+<span class="project-number">06</span>
+</div>
 
-      <article class="project-card">
+<h3>Chess Royale</h3>
 
-        <div class="project-top">
-          <div class="project-icon">🎆</div>
-          <span class="project-number">07</span>
-        </div>
+<p>
+Browser chess project with AI gameplay,
+multiple difficulty levels and advanced chess logic.
+</p>
 
-        <h3>Firework</h3>
+<div class="tags">
+<span class="tag">HTML</span>
+<span class="tag">CSS</span>
+<span class="tag">JavaScript</span>
+<span class="tag">Chess AI</span>
+</div>
 
-        <p>
-          A creative browser-based visual firework experiment built using
-          modern frontend technologies.
-        </p>
+<div class="project-links">
 
-        <div class="tags">
-          <span class="tag">HTML</span>
-          <span class="tag">CSS</span>
-          <span class="tag">JavaScript</span>
-        </div>
+<a
+href="https://project3421699.github.io/chess/"
+target="_blank"
+class="project-link demo">
+🌐 Live Demo
+</a>
 
-        <div class="project-links">
+<a
+href="https://github.com/project3421699/chess"
+target="_blank"
+class="project-link github">
+GitHub
+</a>
 
-          <a
-            href="https://github.com/dev-l-k/Firework"
-            target="_blank"
-            class="project-link"
-          >
-            GitHub
-          </a>
+</div>
 
-        </div>
+</article>
 
-      </article>
 
+<!-- PDF TOOLS -->
 
-      <!-- CURRENT BILL -->
+<article class="project">
 
-      <article class="project-card">
+<div class="project-head">
+<div class="project-icon">📄</div>
+<span class="project-number">07</span>
+</div>
 
-        <div class="project-top">
-          <div class="project-icon">⚡</div>
-          <span class="project-number">08</span>
-        </div>
+<h3>PDF Tools</h3>
 
-        <h3>Kerala Current Bill</h3>
+<p>
+Browser-based PDF utilities designed to perform
+document operations directly from the web interface.
+</p>
 
-        <p>
-          A browser-based project focused on electricity bill calculation
-          and utility functionality.
-        </p>
+<div class="tags">
+<span class="tag">HTML</span>
+<span class="tag">CSS</span>
+<span class="tag">JavaScript</span>
+<span class="tag">PDF</span>
+</div>
 
-        <div class="tags">
-          <span class="tag">HTML</span>
-          <span class="tag">CSS</span>
-          <span class="tag">JavaScript</span>
-        </div>
+<div class="project-links">
 
-        <div class="project-links">
+<a
+href="https://project3421699.github.io/pdf-tools/"
+target="_blank"
+class="project-link demo">
+🌐 Live Demo
+</a>
 
-          <a
-            href="https://github.com/dev-l-k/Kerala-Current-Bill"
-            target="_blank"
-            class="project-link"
-          >
-            GitHub
-          </a>
+<a
+href="https://github.com/project3421699/pdf-tools"
+target="_blank"
+class="project-link github">
+GitHub
+</a>
 
-        </div>
+</div>
 
-      </article>
+</article>
 
 
-      <!-- BT -->
+<!-- LUDO -->
 
-      <article class="project-card">
+<article class="project">
 
-        <div class="project-top">
-          <div class="project-icon">🤖</div>
-          <span class="project-number">09</span>
-        </div>
+<div class="project-head">
+<div class="project-icon">🎲</div>
+<span class="project-number">08</span>
+</div>
 
-        <h3>BT</h3>
+<h3>LUDO</h3>
 
-        <p>
-          An Android and AI application project exploring Gemini API
-          integration and modern application development.
-        </p>
+<p>
+Interactive browser-based Ludo game project.
+</p>
 
-        <div class="tags">
-          <span class="tag">Android</span>
-          <span class="tag">Kotlin</span>
-          <span class="tag">Gemini API</span>
-        </div>
+<div class="tags">
+<span class="tag">HTML</span>
+<span class="tag">CSS</span>
+<span class="tag">JavaScript</span>
+<span class="tag">Game</span>
+</div>
 
-        <div class="project-links">
+<div class="project-links">
 
-          <a
-            href="https://github.com/test3421699/BT"
-            target="_blank"
-            class="project-link"
-          >
-            GitHub
-          </a>
+<a
+href="https://ludo-lilac-nu.vercel.app"
+target="_blank"
+class="project-link demo">
+▲ Live Demo
+</a>
 
-        </div>
+<a
+href="https://github.com/project3421699/LUDO"
+target="_blank"
+class="project-link github">
+GitHub
+</a>
 
-      </article>
+</div>
 
+</article>
 
-      <!-- QR -->
 
-      <article class="project-card">
+<!-- IOT -->
 
-        <div class="project-top">
-          <div class="project-icon">📷</div>
-          <span class="project-number">10</span>
-        </div>
+<article class="project">
 
-        <h3>QR Code Scanner</h3>
+<div class="project-head">
+<div class="project-icon">🔌</div>
+<span class="project-number">09</span>
+</div>
 
-        <p>
-          A project exploring QR code scanning functionality and mobile
-          application development.
-        </p>
+<h3>IoT Class Science Fair</h3>
 
-        <div class="tags">
-          <span class="tag">QR</span>
-          <span class="tag">Scanner</span>
-          <span class="tag">Mobile</span>
-        </div>
+<p>
+IoT and electronics project created for a
+science-fair/classroom technology project.
+</p>
 
-        <div class="project-links">
+<div class="tags">
+<span class="tag">IoT</span>
+<span class="tag">Python</span>
+<span class="tag">Electronics</span>
+</div>
 
-          <a
-            href="https://github.com/test3421699/QrCodeScanner"
-            target="_blank"
-            class="project-link"
-          >
-            GitHub
-          </a>
+<div class="project-links single">
 
-        </div>
+<a
+href="https://github.com/dev-l-k/IOT-Class-Science-Fair-"
+target="_blank"
+class="project-link github">
+💻 GitHub
+</a>
 
-      </article>
+</div>
 
+</article>
 
-      <!-- IOT -->
 
-      <article class="project-card">
+<!-- BT -->
 
-        <div class="project-top">
-          <div class="project-icon">🔌</div>
-          <span class="project-number">11</span>
-        </div>
+<article class="project">
 
-        <h3>IoT Science Fair</h3>
+<div class="project-head">
+<div class="project-icon">📱</div>
+<span class="project-number">10</span>
+</div>
 
-        <p>
-          A learning repository documenting Internet of Things concepts,
-          Python experiments and real-world applications.
-        </p>
+<h3>BT</h3>
 
-        <div class="tags">
-          <span class="tag">IoT</span>
-          <span class="tag">Python</span>
-          <span class="tag">Electronics</span>
-        </div>
+<p>
+Mobile application development project
+focused on Bluetooth-related functionality.
+</p>
 
-        <div class="project-links">
+<div class="tags">
+<span class="tag">Mobile</span>
+<span class="tag">Bluetooth</span>
+<span class="tag">Android</span>
+</div>
 
-          <a
-            href="https://github.com/dev-l-k/IOT-Class-Science-Fair-"
-            target="_blank"
-            class="project-link"
-          >
-            GitHub
-          </a>
+<div class="project-links single">
 
-        </div>
+<a
+href="https://github.com/test3421699/BT"
+target="_blank"
+class="project-link github">
+💻 GitHub
+</a>
 
-      </article>
+</div>
 
-    </div>
+</article>
 
-  </section>
 
+<!-- QR CODE -->
 
-  <!-- GITHUB ACCOUNTS -->
+<article class="project">
 
-  <section id="accounts">
+<div class="project-head">
+<div class="project-icon">📷</div>
+<span class="project-number">11</span>
+</div>
 
-    <div class="section-tag">
-      04 — GITHUB
-    </div>
+<h3>QR Code Scanner</h3>
 
-    <h2 class="section-title">
-      My development accounts.
-    </h2>
+<p>
+QR code scanning application project for
+mobile development.
+</p>
 
-    <p class="section-description">
-      I maintain projects across multiple GitHub accounts for experiments,
-      applications, games and web development.
-    </p>
+<div class="tags">
+<span class="tag">Android</span>
+<span class="tag">QR</span>
+<span class="tag">Scanner</span>
+</div>
 
-    <div class="accounts-grid">
+<div class="project-links single">
 
-      <div class="account-card">
+<a
+href="https://github.com/test3421699/QrCodeScanner"
+target="_blank"
+class="project-link github">
+💻 GitHub
+</a>
 
-        <h3>💻 dev-l-k</h3>
+</div>
 
-        <p>
-          Main account for web projects, browser experiments and IoT work.
-        </p>
+</article>
 
-        <a
-          href="https://github.com/dev-l-k"
-          target="_blank"
-        >
-          View Profile →
-        </a>
 
-      </div>
+</div>
 
+</section>
 
-      <div class="account-card">
 
-        <h3>🧪 test3421699</h3>
+<!-- ================= GITHUB ================= -->
 
-        <p>
-          Experimental applications, web tools and mobile development
-          projects.
-        </p>
+<section id="github">
 
-        <a
-          href="https://github.com/test3421699"
-          target="_blank"
-        >
-          View Profile →
-        </a>
+<div class="section-tag">
+04 — GITHUB
+</div>
 
-      </div>
+<h2 class="section-title">
+My GitHub ecosystem.
+</h2>
 
+<p class="section-description">
+Projects and experiments across my three GitHub accounts.
+</p>
 
-      <div class="account-card">
+<div class="accounts">
 
-        <h3>🚀 project3421699</h3>
+<div class="account">
 
-        <p>
-          Games and browser-based productivity tools.
-        </p>
+<h3>💻 dev-l-k</h3>
 
-        <a
-          href="https://github.com/project3421699"
-          target="_blank"
-        >
-          View Profile →
-        </a>
+<p>
+Web projects, games, utilities and IoT experiments.
+</p>
 
-      </div>
+<a
+href="https://github.com/dev-l-k"
+target="_blank">
+View Profile →
+</a>
 
-    </div>
+</div>
 
-  </section>
 
+<div class="account">
 
-  <!-- CONTACT -->
+<h3>🧪 test3421699</h3>
 
-  <section id="contact">
+<p>
+Application experiments, mobile projects and tools.
+</p>
 
-    <div class="contact-box">
+<a
+href="https://github.com/test3421699"
+target="_blank">
+View Profile →
+</a>
 
-      <div class="section-tag">
-        05 — CONTACT
-      </div>
+</div>
 
-      <h2 class="section-title">
-        Let's build something.
-      </h2>
 
-      <p>
-        Interested in exploring my projects or connecting with me?
-        Feel free to check out my GitHub profiles or send me an email.
-      </p>
+<div class="account">
 
-      <div class="contact-links">
+<h3>🚀 project3421699</h3>
 
-        <a
-          href="mailto:devlkakkoth545@gmail.com"
-          class="btn btn-primary"
-        >
-          📧 Send Email
-        </a>
+<p>
+Games, browser applications and productivity tools.
+</p>
 
-        <a
-          href="https://github.com/dev-l-k"
-          target="_blank"
-          class="btn btn-secondary"
-        >
-          💻 GitHub
-        </a>
+<a
+href="https://github.com/project3421699"
+target="_blank">
+View Profile →
+</a>
 
-      </div>
+</div>
 
-    </div>
+</div>
 
-  </section>
+</section>
 
 
-  <!-- FOOTER -->
+<!-- ================= CONTACT ================= -->
 
-  <footer>
+<section id="contact">
 
-    <p>
-      Designed & Built by <span>PrivateDart</span> 🚀
-    </p>
+<div class="contact-box">
 
-    <br />
+<div class="section-tag">
+05 — CONTACT
+</div>
 
-    <p>
-      Learn • Experiment • Build • Debug • Improve • Ship
-    </p>
+<h2 class="section-title">
+Let's build something.
+</h2>
 
-  </footer>
+<p class="section-description">
 
+Interested in my projects or want to connect?
+Check out my GitHub profiles or send me an email.
 
-  <script>
+</p>
 
-    /* MOBILE MENU */
+<div class="contact-links">
 
-    function toggleMenu() {
-      document
-        .getElementById("navLinks")
-        .classList
-        .toggle("active");
-    }
+<a
+href="mailto:devlkakkoth545@gmail.com"
+class="btn btn-primary">
+📧 Email Me
+</a>
 
+<a
+href="https://github.com/dev-l-k"
+target="_blank"
+class="btn btn-secondary">
+💻 GitHub
+</a>
 
-    /* TYPING EFFECT */
+</div>
 
-    const texts = [
-      "Web Developer",
-      "AI-Assisted Builder",
-      "Browser Game Developer",
-      "IoT Experimenter",
-      "Problem Solver"
-    ];
+</div>
 
-    let textIndex = 0;
-    let charIndex = 0;
-    let deleting = false;
+</section>
 
-    const typingElement = document.getElementById("typing");
 
-    function type() {
+<!-- ================= FOOTER ================= -->
 
-      const currentText = texts[textIndex];
+<footer>
 
-      if (!deleting) {
+<p>
+Designed & Built by
+<span>PrivateDart</span>
+🚀
+</p>
 
-        typingElement.textContent =
-          currentText.substring(0, charIndex + 1);
+<br>
 
-        charIndex++;
+<p>
+Learn • Experiment • Build • Debug • Improve • Ship
+</p>
 
-        if (charIndex === currentText.length) {
-          deleting = true;
-          setTimeout(type, 1200);
-          return;
-        }
+</footer>
 
-      } else {
 
-        typingElement.textContent =
-          currentText.substring(0, charIndex - 1);
+<script>
 
-        charIndex--;
+/* MOBILE MENU */
 
-        if (charIndex === 0) {
-          deleting = false;
-          textIndex = (textIndex + 1) % texts.length;
-        }
+function toggleMenu(){
 
-      }
+document
+.getElementById("navLinks")
+.classList
+.toggle("active");
 
-      setTimeout(
-        type,
-        deleting ? 50 : 90
-      );
+}
 
-    }
 
-    type();
+/* TYPING EFFECT */
 
+const texts=[
+"Student Developer",
+"Web Developer",
+"AI-Assisted Builder",
+"Browser Game Developer",
+"IoT Experimenter",
+"Problem Solver"
+];
 
-    /* CLOSE MOBILE MENU AFTER CLICK */
+let textIndex=0;
+let charIndex=0;
+let deleting=false;
 
-    document.querySelectorAll(".nav-links a").forEach(link => {
+const typing=
+document.getElementById("typing");
 
-      link.addEventListener("click", () => {
+function typeText(){
 
-        document
-          .getElementById("navLinks")
-          .classList
-          .remove("active");
+const text=texts[textIndex];
 
-      });
+if(!deleting){
 
-    });
+typing.textContent=
+text.substring(0,charIndex+1);
 
-  </script>
+charIndex++;
+
+if(charIndex===text.length){
+
+deleting=true;
+
+setTimeout(typeText,1200);
+
+return;
+
+}
+
+}else{
+
+typing.textContent=
+text.substring(0,charIndex-1);
+
+charIndex--;
+
+if(charIndex===0){
+
+deleting=false;
+
+textIndex=
+(textIndex+1)%texts.length;
+
+}
+
+}
+
+setTimeout(
+typeText,
+deleting?45:85
+);
+
+}
+
+typeText();
+
+
+/* CLOSE MOBILE MENU */
+
+document
+.querySelectorAll(".nav-links a")
+.forEach(link=>{
+
+link.addEventListener("click",()=>{
+
+document
+.getElementById("navLinks")
+.classList
+.remove("active");
+
+});
+
+});
+
+</script>
 
 </body>
 </html>
