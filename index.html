@@ -482,11 +482,33 @@ background:rgba(56,189,248,.08);
 background:rgba(255,255,255,.03);
 }
 
+/* SPECIAL FAST CARD */
+
+.project.fast{
+border-color:rgba(139,92,246,.3);
+}
+
+.project.fast:hover{
+border-color:rgba(139,92,246,.75);
+}
+
+.fast-badge{
+display:inline-block;
+margin-bottom:8px;
+padding:4px 8px;
+border-radius:5px;
+font-size:.65rem;
+font-weight:800;
+color:#c4b5fd;
+background:rgba(139,92,246,.1);
+border:1px solid rgba(139,92,246,.2);
+}
+
 /* ================= GITHUB ================= */
 
 .accounts{
 display:grid;
-grid-template-columns:repeat(3,1fr);
+grid-template-columns:repeat(4,1fr);
 gap:18px;
 }
 
@@ -580,7 +602,7 @@ background-position:200%;
 
 /* ================= MOBILE ================= */
 
-@media(max-width:900px){
+@media(max-width:1000px){
 
 .projects-grid{
 grid-template-columns:repeat(2,1fr);
@@ -595,7 +617,7 @@ grid-template-columns:1fr;
 }
 
 .accounts{
-grid-template-columns:1fr;
+grid-template-columns:repeat(2,1fr);
 }
 
 }
@@ -636,6 +658,10 @@ grid-template-columns:1fr;
 
 .tech-grid{
 grid-template-columns:repeat(2,1fr);
+}
+
+.accounts{
+grid-template-columns:1fr;
 }
 
 .focus-grid{
@@ -710,7 +736,7 @@ Hey, I'm <span>PrivateDart</span>
 
 A student developer from Kerala, India building
 web applications, browser games, productivity tools,
-AI experiments and IoT projects.
+AI experiments, speed-testing tools and IoT projects.
 
 </p>
 
@@ -757,7 +783,7 @@ I enjoy experimenting with technology and turning
 concepts into functional applications.
 
 My projects cover browser games, productivity tools,
-PWAs, AI experiments and IoT.
+PWAs, internet tools, AI experiments and IoT.
 
 </p>
 
@@ -779,7 +805,9 @@ and AI-assisted development workflows.
 <div class="focus">🤖 AI Experiments</div>
 <div class="focus">📱 Progressive Web Apps</div>
 <div class="focus">📄 Productivity Tools</div>
+<div class="focus">⚡ Network Tools</div>
 <div class="focus">🔌 IoT Projects</div>
+<div class="focus">🧪 Experiments</div>
 
 </div>
 
@@ -788,12 +816,12 @@ and AI-assisted development workflows.
 <div class="glass stats">
 
 <div class="stat">
-<h3>11+</h3>
+<h3>12+</h3>
 <p>Projects & Experiments</p>
 </div>
 
 <div class="stat">
-<h3>3</h3>
+<h3>4</h3>
 <p>GitHub Accounts</p>
 </div>
 
@@ -1088,7 +1116,7 @@ GitHub
 
 <p>
 Modern URL shortening web application with
-a deployed web interface.
+a deployed Vercel interface.
 </p>
 
 <div class="tags">
@@ -1358,6 +1386,57 @@ class="project-link github">
 </article>
 
 
+<!-- FAST / AERO SPEEDTEST -->
+
+<article class="project fast">
+
+<div class="project-head">
+<div class="project-icon">🚀</div>
+<span class="project-number">12</span>
+</div>
+
+<span class="fast-badge">
+AERO SPEEDTEST
+</span>
+
+<h3>Fast</h3>
+
+<p>
+Premium client-side internet speed test with
+download/upload measurements, ping, jitter,
+real-time graphs, network quality diagnostics,
+test history, CSV export and share cards.
+</p>
+
+<div class="tags">
+<span class="tag">JavaScript</span>
+<span class="tag">HTML5</span>
+<span class="tag">CSS3</span>
+<span class="tag">Cloudflare</span>
+<span class="tag">Canvas</span>
+</div>
+
+<div class="project-links">
+
+<a
+href="https://project974403.github.io/Fast/"
+target="_blank"
+class="project-link demo">
+🌐 Live Demo
+</a>
+
+<a
+href="https://github.com/project974403/Fast"
+target="_blank"
+class="project-link github">
+GitHub
+</a>
+
+</div>
+
+</article>
+
+
 </div>
 
 </section>
@@ -1376,10 +1455,11 @@ My GitHub ecosystem.
 </h2>
 
 <p class="section-description">
-Projects and experiments across my three GitHub accounts.
+Projects and experiments across my four GitHub accounts.
 </p>
 
 <div class="accounts">
+
 
 <div class="account">
 
@@ -1430,6 +1510,25 @@ View Profile →
 </a>
 
 </div>
+
+
+<div class="account">
+
+<h3>⚡ project974403</h3>
+
+<p>
+JavaScript web experiments and performance-focused
+browser applications.
+</p>
+
+<a
+href="https://github.com/project974403"
+target="_blank">
+View Profile →
+</a>
+
+</div>
+
 
 </div>
 
@@ -1520,6 +1619,7 @@ const texts=[
 "AI-Assisted Builder",
 "Browser Game Developer",
 "IoT Experimenter",
+"JavaScript Developer",
 "Problem Solver"
 ];
 
