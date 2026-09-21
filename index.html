@@ -2,1699 +2,2692 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="theme-color" content="#050816">
+<meta name="description" content="DEV L KAKKOTH - Developer Portfolio">
 <title>DEV L KAKKOTH | Developer Portfolio</title>
 
-<meta name="description"
-content="DEV L KAKKOTH — Student Developer building web apps, games, productivity tools, AI experiments and IoT projects.">
-
-<meta name="theme-color" content="#050816">
-
 <style>
-
 :root{
---bg:#050816;
---bg2:#080d1d;
---card:rgba(15,23,48,.72);
---text:#f8fafc;
---muted:#94a3b8;
---primary:#38bdf8;
---primary2:#0284c7;
---purple:#8b5cf6;
---green:#22c55e;
---border:rgba(148,163,184,.16);
---shadow:0 25px 70px rgba(0,0,0,.4);
+    --bg:#050816;
+    --bg2:#080d1d;
+    --card:rgba(15,23,48,.72);
+    --text:#f8fafc;
+    --muted:#94a3b8;
+    --primary:#38bdf8;
+    --primary2:#0284c7;
+    --purple:#8b5cf6;
+    --green:#22c55e;
+    --border:rgba(148,163,184,.16);
+    --shadow:0 20px 60px rgba(0,0,0,.3);
+    --mx:50%;
+    --my:50%;
 }
 
 *{
-margin:0;
-padding:0;
-box-sizing:border-box;
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
 
 html{
-scroll-behavior:smooth;
+    scroll-behavior:smooth;
 }
 
 body{
-background:
-radial-gradient(circle at 10% 10%,rgba(56,189,248,.12),transparent 28%),
-radial-gradient(circle at 90% 25%,rgba(139,92,246,.12),transparent 30%),
-var(--bg);
-color:var(--text);
-font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
-overflow-x:hidden;
+    min-width:0;
+    overflow-x:hidden;
+    background:var(--bg);
+    color:var(--text);
+    font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+    line-height:1.6;
+}
+
+body:before{
+    content:"";
+    position:fixed;
+    inset:0;
+    z-index:-3;
+    pointer-events:none;
+    background:radial-gradient(
+        350px circle at var(--mx) var(--my),
+        rgba(56,189,248,.07),
+        transparent 70%
+    );
 }
 
 a{
-text-decoration:none;
-color:inherit;
+    color:inherit;
+    text-decoration:none;
 }
 
-/* ================= NAV ================= */
+button{
+    font:inherit;
+}
+
+img{
+    max-width:100%;
+}
+
+canvas{
+    position:fixed;
+    inset:0;
+    width:100%;
+    height:100%;
+    z-index:-4;
+    pointer-events:none;
+}
+
+section{
+    scroll-margin-top:90px;
+}
+
+/* BACKGROUND */
+
+.bg{
+    position:fixed;
+    inset:0;
+    overflow:hidden;
+    pointer-events:none;
+    z-index:-5;
+    background:
+        radial-gradient(circle at 10% 10%,rgba(56,189,248,.07),transparent 30%),
+        radial-gradient(circle at 90% 80%,rgba(139,92,246,.07),transparent 30%);
+}
+
+.grid{
+    position:absolute;
+    inset:-100px;
+    background-image:
+        linear-gradient(rgba(56,189,248,.035) 1px,transparent 1px),
+        linear-gradient(90deg,rgba(56,189,248,.035) 1px,transparent 1px);
+    background-size:45px 45px;
+    animation:gridMove 18s linear infinite;
+    mask-image:linear-gradient(to bottom,#000,transparent 90%);
+}
+
+.orb{
+    position:absolute;
+    border-radius:50%;
+    filter:blur(85px);
+    opacity:.14;
+}
+
+.orb1{
+    width:430px;
+    height:430px;
+    background:#38bdf8;
+    top:-180px;
+    left:-150px;
+    animation:orb1 13s ease-in-out infinite alternate;
+}
+
+.orb2{
+    width:400px;
+    height:400px;
+    background:#8b5cf6;
+    right:-170px;
+    top:28%;
+    animation:orb2 16s ease-in-out infinite alternate;
+}
+
+.orb3{
+    width:360px;
+    height:360px;
+    background:#0284c7;
+    left:30%;
+    bottom:-240px;
+    animation:orb3 18s ease-in-out infinite alternate;
+}
+
+.stars,
+.stars:before,
+.stars:after{
+    content:"";
+    position:absolute;
+    inset:0;
+    background-image:
+        radial-gradient(circle,rgba(255,255,255,.65) 1px,transparent 1px);
+    background-size:120px 120px;
+    opacity:.15;
+}
+
+.stars{
+    animation:stars 35s linear infinite;
+}
+
+.stars:before{
+    background-size:185px 185px;
+    animation:stars 48s linear infinite reverse;
+}
+
+.stars:after{
+    background-size:280px 280px;
+    animation:stars 65s linear infinite;
+}
+
+@keyframes gridMove{
+    from{transform:translateY(0)}
+    to{transform:translateY(45px)}
+}
+
+@keyframes orb1{
+    0%{transform:translate(0,0) scale(.9)}
+    50%{transform:translate(100px,90px) scale(1.2)}
+    100%{transform:translate(-50px,160px) scale(1)}
+}
+
+@keyframes orb2{
+    0%{transform:translate(0,0) scale(1)}
+    50%{transform:translate(-100px,70px) scale(.85)}
+    100%{transform:translate(-30px,-80px) scale(1.15)}
+}
+
+@keyframes orb3{
+    0%{transform:translate(0,0) scale(1)}
+    50%{transform:translate(100px,-70px) scale(1.2)}
+    100%{transform:translate(-80px,-20px) scale(.9)}
+}
+
+@keyframes stars{
+    from{transform:translateY(0)}
+    to{transform:translateY(120px)}
+}
+
+/* SCROLL */
+
+.progress{
+    position:fixed;
+    top:0;
+    left:0;
+    width:0;
+    height:3px;
+    z-index:9999;
+    background:linear-gradient(
+        90deg,
+        var(--primary),
+        var(--purple),
+        var(--green)
+    );
+    box-shadow:0 0 15px var(--primary);
+}
+
+/* NAVIGATION */
 
 nav{
-position:fixed;
-top:0;
-left:0;
-width:100%;
-z-index:1000;
-background:rgba(5,8,22,.72);
-backdrop-filter:blur(20px);
-border-bottom:1px solid var(--border);
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    z-index:1000;
+    padding:14px 5%;
+    background:rgba(5,8,22,.7);
+    backdrop-filter:blur(18px);
+    border-bottom:1px solid rgba(148,163,184,.08);
 }
 
 .nav-container{
-max-width:1200px;
-margin:auto;
-padding:17px 24px;
-display:flex;
-justify-content:space-between;
-align-items:center;
+    max-width:1200px;
+    margin:auto;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
 }
 
 .logo{
-font-size:1.3rem;
-font-weight:900;
-letter-spacing:-.7px;
+    font-size:1.4rem;
+    font-weight:900;
+    letter-spacing:-1px;
 }
 
 .logo span{
-color:var(--primary);
+    color:var(--primary);
 }
 
 .nav-links{
-display:flex;
-align-items:center;
-gap:24px;
+    display:flex;
+    align-items:center;
+    gap:27px;
 }
 
 .nav-links a{
-color:var(--muted);
-font-size:.9rem;
-transition:.25s;
+    position:relative;
+    color:var(--muted);
+    font-size:.9rem;
+    transition:.3s;
 }
 
-.nav-links a:hover{
-color:var(--primary);
+.nav-links a:after{
+    content:"";
+    position:absolute;
+    left:0;
+    bottom:-7px;
+    width:0;
+    height:2px;
+    background:var(--primary);
+    transition:.3s;
+}
+
+.nav-links a:hover,
+.nav-links a.active{
+    color:white;
+}
+
+.nav-links a:hover:after,
+.nav-links a.active:after{
+    width:100%;
 }
 
 .github-nav{
-padding:9px 15px;
-border:1px solid var(--border);
-border-radius:9px;
-color:white!important;
-background:rgba(255,255,255,.03);
+    display:flex;
+    align-items:center;
+    gap:7px;
+    padding:9px 15px;
+    border:1px solid var(--border);
+    border-radius:9px;
 }
 
-.menu-btn{
-display:none;
-border:none;
-background:none;
-color:white;
-font-size:1.5rem;
-cursor:pointer;
+.github-nav:after{
+    display:none;
 }
 
-/* ================= HERO ================= */
-
-.hero{
-min-height:100vh;
-max-width:1200px;
-margin:auto;
-padding:150px 25px 80px;
-display:flex;
-align-items:center;
-justify-content:center;
-text-align:center;
+.github-nav img{
+    width:18px;
+    height:18px;
 }
 
-.hero-content{
-max-width:900px;
+.menu{
+    display:none;
+    width:44px;
+    height:44px;
+    border:1px solid var(--border);
+    border-radius:10px;
+    background:rgba(15,23,48,.7);
+    cursor:pointer;
 }
 
-.status{
-display:inline-flex;
-align-items:center;
-gap:9px;
-padding:8px 15px;
-border-radius:50px;
-background:rgba(56,189,248,.07);
-border:1px solid rgba(56,189,248,.2);
-color:var(--primary);
-font-size:.82rem;
-margin-bottom:25px;
+.menu span{
+    display:block;
+    width:20px;
+    height:2px;
+    margin:4px auto;
+    background:white;
+    transition:.3s;
 }
 
-.status-dot{
-width:8px;
-height:8px;
-border-radius:50%;
-background:var(--green);
-box-shadow:0 0 15px var(--green);
-animation:pulse 1.5s infinite;
+.menu.active span:nth-child(1){
+    transform:translateY(6px) rotate(45deg);
 }
 
-.hero h1{
-font-size:clamp(3rem,9vw,7rem);
-line-height:.95;
-letter-spacing:-5px;
-margin-bottom:25px;
+.menu.active span:nth-child(2){
+    opacity:0;
 }
 
-.hero h1 span{
-background:linear-gradient(90deg,var(--primary),var(--purple),var(--primary));
-background-size:200%;
--webkit-background-clip:text;
--webkit-text-fill-color:transparent;
-animation:gradient 5s linear infinite;
+.menu.active span:nth-child(3){
+    transform:translateY(-6px) rotate(-45deg);
 }
 
-.hero-subtitle{
-color:var(--primary);
-font-size:clamp(1.1rem,3vw,1.45rem);
-min-height:35px;
-margin-bottom:20px;
-}
+/* COMMON */
 
-.hero-description{
-max-width:700px;
-margin:auto;
-color:var(--muted);
-line-height:1.8;
-font-size:1rem;
+.container{
+    width:min(1120px,90%);
+    margin:auto;
 }
-
-.hero-buttons{
-display:flex;
-justify-content:center;
-flex-wrap:wrap;
-gap:13px;
-margin-top:32px;
-}
-
-.btn{
-display:inline-flex;
-align-items:center;
-justify-content:center;
-gap:8px;
-padding:12px 20px;
-border-radius:10px;
-font-weight:700;
-transition:.3s;
-}
-
-.btn-primary{
-background:linear-gradient(135deg,var(--primary),var(--primary2));
-color:#00131d;
-}
-
-.btn-primary:hover{
-transform:translateY(-3px);
-box-shadow:0 15px 35px rgba(56,189,248,.2);
-}
-
-.btn-secondary{
-border:1px solid var(--border);
-background:rgba(255,255,255,.03);
-}
-
-.btn-secondary:hover{
-transform:translateY(-3px);
-border-color:var(--primary);
-}
-
-.scroll{
-margin-top:60px;
-color:var(--muted);
-font-size:.78rem;
-animation:float 2s infinite;
-}
-
-/* ================= SECTIONS ================= */
 
 section{
-max-width:1200px;
-margin:auto;
-padding:100px 25px;
-}
-
-.section-tag{
-color:var(--primary);
-font-size:.78rem;
-font-weight:800;
-letter-spacing:2px;
-text-transform:uppercase;
-margin-bottom:10px;
-}
-
-.section-title{
-font-size:clamp(2rem,5vw,3.2rem);
-letter-spacing:-2px;
-margin-bottom:17px;
-}
-
-.section-description{
-max-width:720px;
-color:var(--muted);
-line-height:1.8;
-margin-bottom:40px;
-}
-
-/* ================= ABOUT ================= */
-
-.about-grid{
-display:grid;
-grid-template-columns:1.2fr .8fr;
-gap:20px;
-}
-
-.glass{
-background:var(--card);
-border:1px solid var(--border);
-border-radius:20px;
-padding:30px;
-backdrop-filter:blur(14px);
-}
-
-.about-card p{
-color:var(--muted);
-line-height:1.85;
-margin-bottom:20px;
-}
-
-.focus-grid{
-display:grid;
-grid-template-columns:repeat(2,1fr);
-gap:10px;
-}
-
-.focus{
-padding:13px;
-border-radius:9px;
-background:rgba(255,255,255,.03);
-border:1px solid var(--border);
-color:var(--muted);
-font-size:.88rem;
-}
-
-.stats{
-display:flex;
-flex-direction:column;
-justify-content:center;
-gap:15px;
-}
-
-.stat{
-padding:18px;
-border-left:3px solid var(--primary);
-background:rgba(56,189,248,.04);
-}
-
-.stat h3{
-color:var(--primary);
-font-size:1.8rem;
-}
-
-.stat p{
-color:var(--muted);
-font-size:.85rem;
-margin-top:4px;
-}
-
-/* ================= TECH ================= */
-
-.tech-grid{
-display:grid;
-grid-template-columns:repeat(4,1fr);
-gap:14px;
-}
-
-.tech{
-padding:22px;
-background:var(--card);
-border:1px solid var(--border);
-border-radius:15px;
-transition:.3s;
-}
-
-.tech:hover{
-transform:translateY(-6px);
-border-color:var(--primary);
-background:rgba(56,189,248,.05);
-}
-
-.tech-icon{
-font-size:1.9rem;
-margin-bottom:9px;
-}
-
-.tech h3{
-font-size:1rem;
-margin-bottom:6px;
-}
-
-.tech p{
-color:var(--muted);
-font-size:.8rem;
-line-height:1.5;
-}
-
-/* ================= PROJECTS ================= */
-
-.projects-grid{
-display:grid;
-grid-template-columns:repeat(3,1fr);
-gap:18px;
-}
-
-.project{
-position:relative;
-display:flex;
-flex-direction:column;
-min-height:360px;
-padding:25px;
-border-radius:20px;
-background:linear-gradient(145deg,rgba(18,27,55,.8),rgba(7,12,28,.95));
-border:1px solid var(--border);
-overflow:hidden;
-transition:.35s;
-}
-
-.project::before{
-content:"";
-position:absolute;
-width:190px;
-height:190px;
-top:-80px;
-right:-80px;
-background:radial-gradient(circle,rgba(56,189,248,.14),transparent 70%);
-}
-
-.project:hover{
-transform:translateY(-8px);
-border-color:rgba(56,189,248,.55);
-box-shadow:var(--shadow);
-}
-
-.project-head{
-display:flex;
-justify-content:space-between;
-align-items:center;
-margin-bottom:20px;
-}
-
-.project-icon{
-width:48px;
-height:48px;
-display:grid;
-place-items:center;
-border-radius:13px;
-font-size:1.45rem;
-background:rgba(56,189,248,.09);
-border:1px solid rgba(56,189,248,.14);
-}
-
-.project-number{
-color:var(--muted);
-font-size:.75rem;
-}
-
-.project h3{
-font-size:1.3rem;
-margin-bottom:10px;
-}
-
-.project p{
-color:var(--muted);
-font-size:.88rem;
-line-height:1.7;
-flex-grow:1;
-}
-
-.tags{
-display:flex;
-flex-wrap:wrap;
-gap:6px;
-margin:18px 0;
+    padding:110px 0;
 }
 
 .tag{
-padding:5px 8px;
-border-radius:5px;
-color:var(--primary);
-background:rgba(56,189,248,.07);
-border:1px solid rgba(56,189,248,.12);
-font-size:.68rem;
+    color:var(--primary);
+    font-size:.78rem;
+    font-weight:800;
+    text-transform:uppercase;
+    letter-spacing:3px;
+    margin-bottom:12px;
 }
 
-.project-links{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:8px;
+.title{
+    font-size:clamp(2rem,5vw,3.3rem);
+    line-height:1.05;
+    letter-spacing:-2px;
 }
 
-.project-links.single{
-grid-template-columns:1fr;
+.title:after{
+    content:"";
+    display:block;
+    width:45px;
+    height:3px;
+    margin-top:16px;
+    border-radius:10px;
+    background:linear-gradient(90deg,var(--primary),var(--purple));
+    animation:titleLine 2s ease-in-out infinite alternate;
 }
 
-.project-link{
-text-align:center;
-padding:10px;
-border-radius:8px;
-border:1px solid var(--border);
-font-size:.78rem;
-font-weight:700;
-transition:.25s;
+.description{
+    max-width:680px;
+    margin-top:18px;
+    color:var(--muted);
 }
 
-.project-link:hover{
-border-color:var(--primary);
+@keyframes titleLine{
+    from{width:35px}
+    to{width:80px}
 }
 
-.demo{
-color:var(--primary);
-background:rgba(56,189,248,.08);
+/* HERO */
+
+.hero{
+    min-height:100vh;
+    min-height:100svh;
+    display:flex;
+    align-items:center;
+    padding:140px 0 80px;
+    position:relative;
 }
 
-.github{
-background:rgba(255,255,255,.03);
+.hero-content{
+    position:relative;
+    z-index:2;
 }
 
-/* SPECIAL FAST CARD */
-
-.project.fast{
-border-color:rgba(139,92,246,.3);
+.status{
+    display:inline-flex;
+    align-items:center;
+    gap:9px;
+    padding:7px 13px;
+    border:1px solid rgba(34,197,94,.2);
+    border-radius:30px;
+    background:rgba(34,197,94,.05);
+    color:#86efac;
+    font-size:.78rem;
+    animation:heroDown .8s ease both;
 }
 
-.project.fast:hover{
-border-color:rgba(139,92,246,.75);
-}
-
-.fast-badge{
-display:inline-block;
-margin-bottom:8px;
-padding:4px 8px;
-border-radius:5px;
-font-size:.65rem;
-font-weight:800;
-color:#c4b5fd;
-background:rgba(139,92,246,.1);
-border:1px solid rgba(139,92,246,.2);
-}
-
-/* ================= GITHUB ================= */
-
-.accounts{
-display:grid;
-grid-template-columns:repeat(4,1fr);
-gap:18px;
-}
-
-.account{
-padding:28px;
-border:1px solid var(--border);
-background:var(--card);
-border-radius:18px;
-transition:.3s;
-}
-
-.account:hover{
-transform:translateY(-5px);
-border-color:var(--primary);
-}
-
-.account h3{
-margin-bottom:10px;
-}
-
-.account p{
-color:var(--muted);
-line-height:1.6;
-font-size:.9rem;
-margin-bottom:18px;
-}
-
-.account a{
-color:var(--primary);
-font-weight:700;
-font-size:.85rem;
-}
-
-/* ================= CONTACT ================= */
-
-.contact-box{
-padding:60px 25px;
-text-align:center;
-border:1px solid var(--border);
-border-radius:25px;
-background:
-radial-gradient(circle at top,rgba(56,189,248,.12),transparent 45%),
-var(--card);
-}
-
-.contact-box .section-description{
-margin:15px auto 28px;
-}
-
-.contact-links{
-display:flex;
-justify-content:center;
-flex-wrap:wrap;
-gap:10px;
-}
-
-/* ================= FOOTER ================= */
-
-footer{
-border-top:1px solid var(--border);
-text-align:center;
-padding:30px 20px;
-color:var(--muted);
-font-size:.8rem;
-}
-
-footer span{
-color:var(--primary);
-}
-
-/* ================= ANIMATION ================= */
-
-@keyframes pulse{
-50%{
-opacity:.4;
-transform:scale(.8);
-}
-}
-
-@keyframes float{
-50%{
-transform:translateY(7px);
-}
-}
-
-@keyframes gradient{
-to{
-background-position:200%;
-}
-}
-
-/* ================= MOBILE ================= */
-
-@media(max-width:1000px){
-
-.projects-grid{
-grid-template-columns:repeat(2,1fr);
-}
-
-.tech-grid{
-grid-template-columns:repeat(2,1fr);
-}
-
-.about-grid{
-grid-template-columns:1fr;
-}
-
-.accounts{
-grid-template-columns:repeat(2,1fr);
-}
-
-}
-
-@media(max-width:650px){
-
-.nav-links{
-display:none;
-}
-
-.nav-links.active{
-display:flex;
-position:absolute;
-top:68px;
-left:0;
-width:100%;
-padding:20px;
-flex-direction:column;
-background:#080d1d;
-border-bottom:1px solid var(--border);
-}
-
-.menu-btn{
-display:block;
+.status-dot{
+    width:8px;
+    height:8px;
+    border-radius:50%;
+    background:var(--green);
+    animation:pulse 1.7s infinite;
 }
 
 .hero h1{
-letter-spacing:-3px;
+    margin-top:22px;
+    font-size:clamp(3.2rem,9vw,7rem);
+    line-height:.94;
+    letter-spacing:-6px;
+    animation:heroUp .9s .1s ease both;
 }
 
-section{
-padding:75px 20px;
+.hero h1 span{
+    background:linear-gradient(
+        90deg,
+        var(--primary),
+        #fff,
+        var(--purple),
+        var(--primary)
+    );
+    background-size:300%;
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
+    animation:gradientText 5s linear infinite;
 }
 
-.projects-grid{
-grid-template-columns:1fr;
+.typing{
+    margin-top:22px;
+    color:var(--primary);
+    font-size:clamp(1.1rem,3vw,1.5rem);
+    font-weight:700;
+    animation:heroUp .9s .2s ease both;
 }
 
-.tech-grid{
-grid-template-columns:repeat(2,1fr);
+.typing:after{
+    content:"|";
+    margin-left:3px;
+    animation:blink .8s infinite;
 }
 
-.accounts{
-grid-template-columns:1fr;
+.hero p{
+    max-width:700px;
+    margin-top:18px;
+    color:var(--muted);
+    font-size:1.03rem;
+    animation:heroUp .9s .3s ease both;
+}
+
+.hero-buttons{
+    display:flex;
+    flex-wrap:wrap;
+    gap:12px;
+    margin-top:30px;
+    animation:heroUp .9s .4s ease both;
+}
+
+.btn{
+    position:relative;
+    overflow:hidden;
+    min-height:46px;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    padding:11px 19px;
+    border-radius:10px;
+    border:1px solid var(--border);
+    background:rgba(15,23,48,.7);
+    color:white;
+    font-weight:700;
+    transition:.35s;
+}
+
+.btn.primary{
+    border-color:transparent;
+    background:linear-gradient(135deg,var(--primary2),var(--purple));
+}
+
+.btn:before{
+    content:"";
+    position:absolute;
+    top:0;
+    left:-120%;
+    width:80%;
+    height:100%;
+    background:linear-gradient(
+        90deg,
+        transparent,
+        rgba(255,255,255,.25),
+        transparent
+    );
+    transform:skewX(-20deg);
+    transition:.6s;
+}
+
+.btn:hover:before{
+    left:140%;
+}
+
+.btn:hover{
+    transform:translateY(-4px);
+    box-shadow:0 12px 35px rgba(56,189,248,.2);
+}
+
+.scroll{
+    display:inline-flex;
+    margin-top:52px;
+    color:var(--muted);
+    font-size:.8rem;
+    animation:bounce 2s infinite;
+}
+
+.hero:after{
+    content:"</>";
+    position:absolute;
+    right:7%;
+    top:24%;
+    font-size:8rem;
+    font-weight:900;
+    color:rgba(56,189,248,.025);
+    animation:codeFloat 5s ease-in-out infinite;
+}
+
+@keyframes heroUp{
+    from{
+        opacity:0;
+        transform:translateY(30px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+@keyframes heroDown{
+    from{
+        opacity:0;
+        transform:translateY(-20px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+@keyframes gradientText{
+    to{background-position:300% center}
+}
+
+@keyframes blink{
+    50%{opacity:0}
+}
+
+@keyframes pulse{
+    0%,100%{
+        box-shadow:0 0 0 0 rgba(34,197,94,.5);
+    }
+    50%{
+        box-shadow:0 0 0 9px rgba(34,197,94,0);
+    }
+}
+
+@keyframes bounce{
+    0%,100%{transform:translateY(0)}
+    50%{transform:translateY(8px)}
+}
+
+@keyframes codeFloat{
+    0%,100%{
+        transform:translateY(0) rotate(-5deg);
+    }
+    50%{
+        transform:translateY(-25px) rotate(5deg);
+    }
+}
+
+/* GLASS */
+
+.glass{
+    position:relative;
+    overflow:hidden;
+    padding:30px;
+    border:1px solid var(--border);
+    border-radius:20px;
+    background:var(--card);
+    backdrop-filter:blur(15px);
+    box-shadow:var(--shadow);
+    transition:.4s;
+}
+
+.glass:before,
+.project:before,
+.tech:before,
+.account:before{
+    content:"";
+    position:absolute;
+    width:180px;
+    height:180px;
+    border-radius:50%;
+    top:-100px;
+    right:-100px;
+    background:rgba(56,189,248,.1);
+    filter:blur(60px);
+    opacity:0;
+    transition:.4s;
+}
+
+.glass:hover:before,
+.project:hover:before,
+.tech:hover:before,
+.account:hover:before{
+    opacity:1;
+}
+
+/* ABOUT */
+
+.about-grid{
+    display:grid;
+    grid-template-columns:1.2fr .8fr;
+    gap:25px;
+    margin-top:45px;
 }
 
 .focus-grid{
-grid-template-columns:1fr;
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:14px;
+    margin-top:25px;
 }
 
+.focus{
+    padding:20px;
+    border:1px solid var(--border);
+    border-radius:15px;
+    background:rgba(255,255,255,.02);
+    transition:.35s;
 }
 
+.focus:hover{
+    transform:translateY(-6px);
+    border-color:rgba(56,189,248,.3);
+}
+
+.focus h3{
+    font-size:1rem;
+}
+
+.focus p{
+    margin-top:5px;
+    color:var(--muted);
+    font-size:.84rem;
+}
+
+.stats{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:12px;
+    margin-top:22px;
+}
+
+.stat{
+    padding:17px 10px;
+    text-align:center;
+    border:1px solid var(--border);
+    border-radius:14px;
+    background:rgba(255,255,255,.02);
+}
+
+.stat h3{
+    color:var(--primary);
+    font-size:1.7rem;
+}
+
+.stat p{
+    color:var(--muted);
+    font-size:.75rem;
+}
+
+/* LOGOS */
+
+.tech-icon{
+    width:42px;
+    height:42px;
+    object-fit:contain;
+    transition:.4s;
+}
+
+.github-logo{
+    width:25px;
+    height:25px;
+}
+
+.ai-icon{
+    filter:brightness(0) invert(1);
+}
+
+/* STACK */
+
+.tech-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:15px;
+    margin-top:45px;
+}
+
+.tech{
+    position:relative;
+    overflow:hidden;
+    padding:25px 18px;
+    border:1px solid var(--border);
+    border-radius:17px;
+    background:var(--card);
+    backdrop-filter:blur(12px);
+    text-align:center;
+    transition:.4s;
+}
+
+.tech:hover{
+    transform:translateY(-8px);
+    border-color:rgba(56,189,248,.35);
+}
+
+.tech:hover .tech-icon{
+    transform:translateY(-7px) scale(1.12) rotate(4deg);
+}
+
+.tech h3{
+    margin-top:12px;
+    font-size:.95rem;
+}
+
+/* PROJECTS */
+
+.projects-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:18px;
+    margin-top:45px;
+}
+
+.project{
+    position:relative;
+    overflow:hidden;
+    padding:25px;
+    border:1px solid var(--border);
+    border-radius:18px;
+    background:var(--card);
+    backdrop-filter:blur(12px);
+    transition:
+        transform .4s cubic-bezier(.2,.8,.2,1),
+        border-color .3s,
+        box-shadow .4s;
+}
+
+.project:hover{
+    transform:translateY(-8px);
+    border-color:rgba(56,189,248,.35);
+    box-shadow:0 20px 50px rgba(0,0,0,.3);
+}
+
+.project-number{
+    color:var(--primary);
+    font-size:.72rem;
+    font-weight:800;
+}
+
+.project h3{
+    margin-top:10px;
+    font-size:1.15rem;
+}
+
+.project p{
+    margin-top:10px;
+    color:var(--muted);
+    font-size:.85rem;
+}
+
+.project-links{
+    display:flex;
+    gap:8px;
+    margin-top:20px;
+}
+
+.project-links a{
+    flex:1;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:7px;
+    padding:8px;
+    border:1px solid var(--border);
+    border-radius:8px;
+    text-align:center;
+    font-size:.74rem;
+    transition:.3s;
+}
+
+.project-links a:hover{
+    color:var(--primary);
+    border-color:var(--primary);
+}
+
+.link-logo{
+    width:15px;
+    height:15px;
+    object-fit:contain;
+}
+
+.github-link-logo{
+    filter:none;
+}
+
+.pages-logo{
+    filter:brightness(0) invert(1);
+}
+
+/* GITHUB */
+
+.accounts{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:18px;
+    margin-top:40px;
+}
+
+.account{
+    position:relative;
+    overflow:hidden;
+    display:flex;
+    align-items:center;
+    gap:18px;
+    padding:22px;
+    border:1px solid var(--border);
+    border-radius:17px;
+    background:var(--card);
+    transition:.4s;
+}
+
+.account:hover{
+    transform:translateY(-7px);
+    border-color:rgba(56,189,248,.35);
+}
+
+.account-icon{
+    width:48px;
+    height:48px;
+    display:grid;
+    place-items:center;
+    border-radius:12px;
+    background:rgba(56,189,248,.08);
+}
+
+.account h3{
+    font-size:1rem;
+}
+
+.account p{
+    color:var(--muted);
+    font-size:.8rem;
+}
+
+/* CONTACT */
+
+.contact-box{
+    position:relative;
+    overflow:hidden;
+    padding:55px 25px;
+    text-align:center;
+    border:1px solid var(--border);
+    border-radius:24px;
+    background:
+        radial-gradient(circle at top,rgba(56,189,248,.1),transparent 45%),
+        var(--card);
+}
+
+.contact-box h2{
+    font-size:clamp(2rem,6vw,3.5rem);
+}
+
+.contact-box p{
+    max-width:600px;
+    margin:15px auto 25px;
+    color:var(--muted);
+}
+
+.contact-links{
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:12px;
+}
+
+/* REVEAL */
+
+.reveal{
+    opacity:0;
+    transform:translateY(35px);
+    transition:
+        opacity .8s ease,
+        transform .8s cubic-bezier(.2,.7,.2,1);
+    transition-delay:var(--delay,0ms);
+}
+
+.reveal.show{
+    opacity:1;
+    transform:translateY(0);
+}
+
+/* FOOTER */
+
+footer{
+    padding:40px 0;
+    text-align:center;
+    color:var(--muted);
+    font-size:.8rem;
+}
+
+footer span{
+    color:var(--primary);
+}
+
+/* TABLET */
+
+@media(max-width:950px){
+
+    .projects-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .tech-grid{
+        grid-template-columns:repeat(3,1fr);
+    }
+
+    .about-grid{
+        grid-template-columns:1fr;
+    }
+}
+
+/* MOBILE */
+
+@media(max-width:700px){
+
+    nav{
+        padding:11px 18px;
+    }
+
+    .menu{
+        display:block;
+    }
+
+    .nav-links{
+        position:absolute;
+        top:68px;
+        left:15px;
+        right:15px;
+        display:flex;
+        flex-direction:column;
+        align-items:stretch;
+        gap:3px;
+        padding:12px;
+        border:1px solid var(--border);
+        border-radius:16px;
+        background:rgba(5,8,22,.97);
+        backdrop-filter:blur(20px);
+        opacity:0;
+        visibility:hidden;
+        transform:translateY(-15px) scale(.97);
+        transition:.3s;
+    }
+
+    .nav-links.active{
+        opacity:1;
+        visibility:visible;
+        transform:translateY(0) scale(1);
+    }
+
+    .nav-links a{
+        padding:13px 14px;
+        border-radius:9px;
+    }
+
+    .nav-links a:hover{
+        background:rgba(56,189,248,.06);
+    }
+
+    .github-nav{
+        justify-content:center;
+    }
+
+    section{
+        padding:80px 0;
+    }
+
+    .container{
+        width:92%;
+    }
+
+    .hero{
+        min-height:100svh;
+        padding:120px 0 65px;
+    }
+
+    .hero h1{
+        font-size:clamp(3rem,15vw,5rem);
+        letter-spacing:-4px;
+    }
+
+    .hero p{
+        font-size:.94rem;
+    }
+
+    .hero-buttons{
+        flex-direction:column;
+    }
+
+    .hero-buttons .btn{
+        width:100%;
+    }
+
+    .hero:after{
+        font-size:4rem;
+        right:2%;
+        top:19%;
+    }
+
+    .focus-grid{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .tech-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .projects-grid{
+        grid-template-columns:1fr;
+    }
+
+    .accounts{
+        grid-template-columns:1fr;
+    }
+
+    .glass{
+        padding:23px;
+    }
+
+    .grid{
+        background-size:32px 32px;
+        animation-duration:13s;
+    }
+
+    .orb1{
+        width:250px;
+        height:250px;
+    }
+
+    .orb2{
+        width:230px;
+        height:230px;
+    }
+
+    .orb3{
+        width:220px;
+        height:220px;
+    }
+
+    .stars{
+        animation-duration:22s;
+    }
+
+    .stars:before{
+        animation-duration:32s;
+    }
+
+    .stars:after{
+        animation-duration:42s;
+    }
+
+    .tech{
+        animation:mobileTech 4s ease-in-out infinite alternate;
+    }
+
+    .tech:nth-child(even){
+        animation-delay:-2s;
+    }
+
+    @keyframes mobileTech{
+        from{transform:translateY(0)}
+        to{transform:translateY(-4px)}
+    }
+
+    .project{
+        animation:mobileProject 5s ease-in-out infinite alternate;
+    }
+
+    .project:nth-child(even){
+        animation-delay:-2.5s;
+    }
+
+    @keyframes mobileProject{
+        from{
+            box-shadow:0 0 0 rgba(56,189,248,0);
+        }
+        to{
+            box-shadow:0 0 25px rgba(56,189,248,.07);
+        }
+    }
+
+    .account{
+        animation:mobileAccount 4s ease-in-out infinite alternate;
+    }
+
+    .account:nth-child(even){
+        animation-delay:-2s;
+    }
+
+    @keyframes mobileAccount{
+        from{transform:translateY(0)}
+        to{transform:translateY(-3px)}
+    }
+
+    .btn{
+        min-height:50px;
+    }
+}
+
+/* SMALL MOBILE */
+
+@media(max-width:480px){
+
+    .hero{
+        padding-top:110px;
+    }
+
+    .hero h1{
+        font-size:clamp(2.8rem,16vw,4rem);
+    }
+
+    .focus-grid,
+    .tech-grid{
+        grid-template-columns:1fr;
+    }
+
+    .stats{
+        grid-template-columns:1fr;
+    }
+
+    .project{
+        padding:21px;
+    }
+
+    .project-links{
+        flex-direction:column;
+    }
+
+    .contact-box{
+        padding:40px 18px;
+    }
+
+    .contact-links{
+        flex-direction:column;
+    }
+
+    .contact-links .btn{
+        width:100%;
+    }
+
+    .orb1,
+    .orb2,
+    .orb3{
+        width:190px;
+        height:190px;
+    }
+}
+
+/* REDUCED MOTION */
+
+@media(prefers-reduced-motion:reduce){
+
+    *,
+    *:before,
+    *:after{
+        animation-duration:.01ms!important;
+        animation-iteration-count:1!important;
+        scroll-behavior:auto!important;
+        transition-duration:.01ms!important;
+    }
+
+    .reveal{
+        opacity:1;
+        transform:none;
+    }
+}
+.tech-icon {
+  width: 42px;
+  height: 42px;
+  object-fit: contain;
+  transition: .4s;
+}
+
+.tech:hover .tech-icon {
+  transform: translateY(-5px) scale(1.08);
+}
+
+/* White logos */
+.tech:nth-child(6) .tech-icon,
+.tech:nth-child(7) .tech-icon {
+  filter: brightness(0) invert(1);
+}
+
+/* Keep AI API logo visible */
+.tech:nth-child(8) .tech-icon {
+  filter: none;
+}
 </style>
 </head>
 
 <body>
 
-<!-- ================= NAVIGATION ================= -->
+<!-- PARTICLES -->
+<canvas id="particles"></canvas>
+
+<!-- BACKGROUND -->
+<div class="bg">
+    <div class="grid"></div>
+    <div class="stars"></div>
+
+    <div class="orb orb1"></div>
+    <div class="orb orb2"></div>
+    <div class="orb orb3"></div>
+</div>
+
+<div class="progress" id="progress"></div>
+
+<!-- NAVIGATION -->
 
 <nav>
 
-<div class="nav-container">
+    <div class="nav-container">
 
-<a href="#" class="logo">
-DEV<span> L K</span>
-</a>
+        <a href="#home" class="logo">
+            DEV <span>L K</span>
+        </a>
 
-<div class="nav-links" id="navLinks">
+        <button class="menu" id="menu" aria-label="Open menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
 
-<a href="#about">About</a>
-<a href="#stack">Stack</a>
-<a href="#projects">Projects</a>
-<a href="#github">GitHub</a>
-<a href="#contact">Contact</a>
+        <div class="nav-links" id="navLinks">
 
-<a
-href="https://github.com/dev-l-k"
-target="_blank"
-class="github-nav">
-GitHub ↗
-</a>
+            <a href="#about">About</a>
+            <a href="#stack">Stack</a>
+            <a href="#projects">Projects</a>
+            <a href="#github">GitHub</a>
+            <a href="#contact">Contact</a>
 
-</div>
+            <a
+                href="https://github.com/dev-l-k"
+                target="_blank"
+                class="github-nav"
+            >
+                <img
+                    src="https://cdn.simpleicons.org/github/ffffff"
+                    alt="GitHub"
+                >
+                GitHub
+            </a>
 
-<button
-class="menu-btn"
-onclick="toggleMenu()">
-☰
-</button>
+        </div>
 
-</div>
+    </div>
 
 </nav>
 
+<main>
 
-<!-- ================= HERO ================= -->
+<!-- HERO -->
 
-<main class="hero">
+<section class="hero" id="home">
 
-<div class="hero-content">
+    <div class="container hero-content">
 
-<div class="status">
-<span class="status-dot"></span>
-Building & experimenting
-</div>
+        <div class="status">
+            <span class="status-dot"></span>
+            Available for new projects
+        </div>
 
-<h1>
-Hey, I'm <span>DEV L K</span>
-</h1>
+        <h1>
+            Hey, I'm<br>
+            <span>DEV L K</span>
+        </h1>
 
-<div class="hero-subtitle">
-<span id="typing"></span>
-</div>
+        <div class="typing" id="typing"></div>
 
-<p class="hero-description">
+        <p>
+            I'm a developer who loves building websites, browser games,
+            useful tools and experimental projects. I enjoy turning
+            ideas into interactive digital experiences.
+        </p>
 
-A student developer from Kerala, India building
-web applications, browser games, productivity tools,
-AI experiments, speed-testing tools and IoT projects.
+        <div class="hero-buttons">
 
-</p>
+            <a href="#projects" class="btn primary">
+                View My Projects
+            </a>
 
-<div class="hero-buttons">
+            <a href="#contact" class="btn">
+                Let's Connect
+            </a>
 
-<a href="#projects"
-class="btn btn-primary">
-🚀 Explore Projects
-</a>
+            <a
+                href="https://github.com/dev-l-k"
+                target="_blank"
+                class="btn"
+            >
+                GitHub
+            </a>
 
-<a
-href="https://github.com/dev-l-k"
-target="_blank"
-class="btn btn-secondary">
-💻 GitHub
-</a>
+        </div>
 
-</div>
+        <a href="#about" class="scroll">
+            Scroll to explore
+        </a>
 
-<div class="scroll">
-↓ Scroll to explore
-</div>
+    </div>
 
-</div>
+</section>
 
-</main>
-
-
-<!-- ================= ABOUT ================= -->
+<!-- ABOUT -->
 
 <section id="about">
 
-<div class="section-tag">
-01 — ABOUT ME
-</div>
+    <div class="container">
 
-<h2 class="section-title">
-Building ideas into working projects.
-</h2>
+        <div class="tag">01 — About</div>
 
-<p class="section-description">
+        <h2 class="title">
+            Building things,<br>
+            learning every day.
+        </h2>
 
-I enjoy experimenting with technology and turning
-concepts into functional applications.
+        <p class="description">
+            I'm a developer who enjoys experimenting with web technologies,
+            APIs, games, tools and creative interfaces.
+        </p>
 
-My projects cover browser games, productivity tools,
-PWAs, internet tools, AI experiments and IoT.
+        <div class="about-grid">
 
-</p>
+            <div class="glass">
 
-<div class="about-grid">
+                <h3>What I focus on</h3>
 
-<div class="glass about-card">
+                <div class="focus-grid">
 
-<h3>What I Build</h3>
+                    <div class="focus">
+                        <h3>Web Development</h3>
+                        <p>
+                            Responsive and interactive websites.
+                        </p>
+                    </div>
 
-<p>
-I focus on rapid prototyping, modern web technologies
-and AI-assisted development workflows.
-</p>
+                    <div class="focus">
+                        <h3>Browser Games</h3>
+                        <p>
+                            Fun games built with web technologies.
+                        </p>
+                    </div>
 
-<div class="focus-grid">
+                    <div class="focus">
+                        <h3>AI Experiments</h3>
+                        <p>
+                            Exploring AI and useful applications.
+                        </p>
+                    </div>
 
-<div class="focus">🌐 Web Applications</div>
-<div class="focus">🎮 Browser Games</div>
-<div class="focus">🤖 AI Experiments</div>
-<div class="focus">📱 Progressive Web Apps</div>
-<div class="focus">📄 Productivity Tools</div>
-<div class="focus">⚡ Network Tools</div>
-<div class="focus">🔌 IoT Projects</div>
-<div class="focus">🧪 Experiments</div>
+                    <div class="focus">
+                        <h3>Tools and Apps</h3>
+                        <p>
+                            Small tools that solve real problems.
+                        </p>
+                    </div>
 
-</div>
+                </div>
 
-</div>
+            </div>
 
-<div class="glass stats">
+            <div class="glass">
 
-<div class="stat">
-<h3>12+</h3>
-<p>Projects & Experiments</p>
-</div>
+                <h3>My Journey</h3>
 
-<div class="stat">
-<h3>4</h3>
-<p>GitHub Accounts</p>
-</div>
+                <p style="color:var(--muted);margin-top:15px">
+                    Started with simple HTML pages and gradually moved
+                    into JavaScript apps, APIs, browser games and
+                    experimental projects.
+                </p>
 
-<div class="stat">
-<h3>∞</h3>
-<p>Ideas to Build</p>
-</div>
+                <p style="color:var(--muted);margin-top:15px">
+                    Every project is an opportunity to learn something new
+                    and improve my development skills.
+                </p>
 
-</div>
+                <div class="stats">
 
-</div>
+                    <div class="stat">
+                        <h3>12+</h3>
+                        <p>Projects</p>
+                    </div>
+
+                    <div class="stat">
+                        <h3>4</h3>
+                        <p>GitHub Accounts</p>
+                    </div>
+
+                    <div class="stat">
+                        <h3>∞</h3>
+                        <p>Ideas</p>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
 
 </section>
 
-
-<!-- ================= TECH STACK ================= -->
+<!-- STACK -->
 
 <section id="stack">
 
-<div class="section-tag">
-02 — TECH STACK
-</div>
+    <div class="container">
 
-<h2 class="section-title">
-Tools I use to build.
-</h2>
+        <div class="tag">02 — Stack</div>
 
-<p class="section-description">
-Technologies and workflows used across my projects.
-</p>
+        <h2 class="title">
+            Technologies I use.
+        </h2>
 
+        <p class="description">
+            My current toolkit for building websites, apps and experiments.
+        </p>
 <div class="tech-grid">
 
-<div class="tech">
-<div class="tech-icon">🌐</div>
-<h3>HTML5</h3>
-<p>Semantic and responsive interfaces.</p>
+    <div class="tech">
+  <img class="tech-icon" src="https://cdn.simpleicons.org/html5" alt="HTML5">
+  <h3>HTML5</h3>
 </div>
 
 <div class="tech">
-<div class="tech-icon">🎨</div>
-<h3>CSS3</h3>
-<p>Modern responsive UI design.</p>
+  <img class="tech-icon" src="https://cdn.simpleicons.org/css" alt="CSS3">
+  <h3>CSS3</h3>
 </div>
 
 <div class="tech">
-<div class="tech-icon">⚡</div>
-<h3>JavaScript</h3>
-<p>Interactive browser applications.</p>
+  <img class="tech-icon" src="https://cdn.simpleicons.org/javascript" alt="JavaScript">
+  <h3>JavaScript</h3>
 </div>
 
 <div class="tech">
-<div class="tech-icon">🐍</div>
-<h3>Python</h3>
-<p>Automation and IoT experiments.</p>
+  <img class="tech-icon" src="https://cdn.simpleicons.org/python" alt="Python">
+  <h3>Python</h3>
 </div>
 
 <div class="tech">
-<div class="tech-icon">🤖</div>
-<h3>AI Development</h3>
-<p>AI-assisted development workflows.</p>
+  <img class="tech-icon" src="https://cdn.simpleicons.org/firebase" alt="Firebase">
+  <h3>Firebase</h3>
 </div>
 
 <div class="tech">
-<div class="tech-icon">📱</div>
-<h3>PWA</h3>
-<p>Installable web applications.</p>
+  <img class="tech-icon" src="https://cdn.simpleicons.org/vercel/white" alt="Vercel">
+  <h3>Vercel</h3>
 </div>
 
 <div class="tech">
-<div class="tech-icon">🔌</div>
-<h3>IoT</h3>
-<p>Connected device experiments.</p>
+  <img class="tech-icon" src="https://cdn.simpleicons.org/github/white" alt="GitHub">
+  <h3>GitHub</h3>
 </div>
 
 <div class="tech">
-<div class="tech-icon">☁️</div>
-<h3>GitHub & Vercel</h3>
-<p>Version control and deployment.</p>
+  <img class="tech-icon" src="https://cdn.simpleicons.org/openrouter" alt="AI APIs">
+  <h3>AI APIs</h3>
 </div>
 
 </div>
+
+    </div>
 
 </section>
 
-
-<!-- ================= PROJECTS ================= -->
+<!-- PROJECTS -->
 
 <section id="projects">
 
-<div class="section-tag">
-03 — PROJECTS
-</div>
+    <div class="container">
 
-<h2 class="section-title">
-Things I've built.
-</h2>
+        <div class="tag">03 — Projects</div>
 
-<p class="section-description">
-Explore my projects across games, web applications,
-productivity tools and technology experiments.
-</p>
+        <h2 class="title">
+            Things I've built.
+        </h2>
 
-<div class="projects-grid">
+        <p class="description">
+            A collection of websites, games, tools and experiments.
+        </p>
 
+        <div class="projects-grid">
 
-<!-- FIREWORK -->
+            <!-- 01 -->
 
-<article class="project">
+            <article class="project">
 
-<div class="project-head">
-<div class="project-icon">🎆</div>
-<span class="project-number">01</span>
-</div>
+                <div class="project-number">01</div>
 
-<h3>Firework</h3>
+                <h3>Firework</h3>
 
-<p>
-Interactive browser-based fireworks visual
-experiment with animated effects.
-</p>
+                <p>
+                    An interactive fireworks project built for the browser,
+                    featuring animated fireworks and a visual experience.
+                </p>
 
-<div class="tags">
-<span class="tag">HTML</span>
-<span class="tag">CSS</span>
-<span class="tag">JavaScript</span>
-</div>
+                <div class="project-links">
 
-<div class="project-links">
+                    <a
+                        href="https://dev-l-k.github.io/Firework/"
+                        target="_blank"
+                    >
+                        Live Demo
+                    </a>
 
-<a
-href="https://dev-l-k.github.io/Firework/"
-target="_blank"
-class="project-link demo">
-🌐 Live Demo
-</a>
+                    <a
+                        href="https://github.com/dev-l-k/Firework"
+                        target="_blank"
+                    >
+                        <img
+                            class="link-logo"
+                            src="https://cdn.simpleicons.org/github/ffffff"
+                            alt="GitHub"
+                        >
+                        GitHub
+                    </a>
 
-<a
-href="https://github.com/dev-l-k/Firework"
-target="_blank"
-class="project-link github">
-GitHub
-</a>
+                </div>
 
-</div>
+            </article>
 
-</article>
+            <!-- 02 -->
 
+            <article class="project">
 
-<!-- GAMES NEW -->
+                <div class="project-number">02</div>
 
-<article class="project">
+                <h3>GamesNew</h3>
 
-<div class="project-head">
-<div class="project-icon">🎮</div>
-<span class="project-number">02</span>
-</div>
+                <p>
+                    A collection of browser games and experiments created
+                    using web technologies.
+                </p>
 
-<h3>GamesNew</h3>
+                <div class="project-links">
 
-<p>
-A collection of browser games and useful mini tools
-including Sudoku, Hangman, Calculator, Calendar,
-Memory, Tic-Tac-Toe and more.
-</p>
+                    <a
+                        href="https://dev-l-k.github.io/GamesNew/"
+                        target="_blank"
+                    >
+                        Live Demo
+                    </a>
 
-<div class="tags">
-<span class="tag">HTML</span>
-<span class="tag">CSS</span>
-<span class="tag">JavaScript</span>
-<span class="tag">Games</span>
-</div>
+                    <a
+                        href="https://github.com/dev-l-k/GamesNew"
+                        target="_blank"
+                    >
+                        <img
+                            class="link-logo"
+                            src="https://cdn.simpleicons.org/github/ffffff"
+                            alt="GitHub"
+                        >
+                        GitHub
+                    </a>
 
-<div class="project-links">
+                </div>
 
-<a
-href="https://dev-l-k.github.io/GamesNew/"
-target="_blank"
-class="project-link demo">
-🌐 Live Demo
-</a>
+            </article>
 
-<a
-href="https://github.com/dev-l-k/GamesNew"
-target="_blank"
-class="project-link github">
-GitHub
-</a>
+            <!-- 03 -->
 
-</div>
+            <article class="project">
 
-</article>
+                <div class="project-number">03</div>
 
+                <h3>Kerala Current Bill</h3>
 
+                <p>
+                    A web application designed to calculate Kerala
+                    electricity bills based on consumption.
+                </p>
+
+                <div class="project-links">
+
+                    <a
+                        href="https://dev-l-k.github.io/Kerala-Current-Bill/"
+                        target="_blank"
+                    >
+                        Live Demo
+                    </a>
+
+                    <a
+                        href="https://github.com/dev-l-k/Kerala-Current-Bill"
+                        target="_blank"
+                    >
+                        <img
+                            class="link-logo"
+                            src="https://cdn.simpleicons.org/github/ffffff"
+                            alt="GitHub"
+                        >
+                        GitHub
+                    </a>
 
-<!-- KERALA CURRENT BILL -->
+                </div>
 
-<article class="project">
+            </article>
 
-<div class="project-head">
-<div class="project-icon">⚡</div>
-<span class="project-number">04</span>
-</div>
+            <!-- 04 -->
+
+            <article class="project">
+
+                <div class="project-number">04</div>
+
+                <h3>StudyMate</h3>
+
+                <p>
+                    A study-focused application created to provide useful
+                    tools and features for students.
+                </p>
+
+                <div class="project-links">
+
+                    <a
+                        href="https://dev-l-k.github.io/APKs/"
+                        target="_blank"
+                    >
+                        Live Demo
+                    </a>
+
+                    <a
+                        href="https://github.com/test3421699/StudyMateV2"
+                        target="_blank"
+                    >
+                        <img
+                            class="link-logo"
+                            src="https://cdn.simpleicons.org/github/ffffff"
+                            alt="GitHub"
+                        >
+                        GitHub
+                    </a>
+
+                </div>
+
+            </article>
+
+            <!-- 05 -->
 
-<h3>Kerala Current Bill</h3>
+            <article class="project">
+
+                <div class="project-number">05</div>
+
+                <h3>ShortUrl</h3>
+
+                <p>
+                    A URL shortening web application for creating
+                    shorter and easier-to-share links.
+                </p>
+
+                <div class="project-links">
+
+                    <a
+                        href="https://short-url-one-ochre.vercel.app"
+                        target="_blank"
+                    >
+                        <img
+                            class="link-logo"
+                            src="https://cdn.simpleicons.org/vercel/ffffff"
+                            alt="Vercel"
+                        >
+                        Live Demo
+                    </a>
+
+                    <a
+                        href="https://github.com/test3421699/ShortUrl"
+                        target="_blank"
+                    >
+                        <img
+                            class="link-logo"
+                            src="https://cdn.simpleicons.org/github/ffffff"
+                            alt="GitHub"
+                        >
+                        GitHub
+                    </a>
 
-<p>
-Web utility designed for calculating electricity
-bill estimates.
-</p>
+                </div>
 
-<div class="tags">
-<span class="tag">HTML</span>
-<span class="tag">CSS</span>
-<span class="tag">JavaScript</span>
-</div>
+            </article>
 
-<div class="project-links">
+            <!-- 06 -->
+
+            <article class="project">
+
+                <div class="project-number">06</div>
+
+                <h3>Chess Royale</h3>
+
+                <p>
+                    A browser-based chess project with a modern interface
+                    and interactive gameplay.
+                </p>
+
+                <div class="project-links">
+
+                    <a
+                        href="https://chess-by-privatedart.vercel.app"
+                        target="_blank"
+                    >
+                        <img
+                            class="link-logo"
+                            src="https://cdn.simpleicons.org/vercel/ffffff"
+                            alt="Vercel"
+                        >
+                        Live Demo
+                    </a>
+
+                    <a
+                        href="https://github.com/project3421699/Chess2.0"
+                        target="_blank"
+                    >
+                        <img
+                            class="link-logo"
+                            src="https://cdn.simpleicons.org/github/ffffff"
+                            alt="GitHub"
+                        >
+                        GitHub
+                    </a>
+
+                </div>
+
+            </article>
+
+            <!-- 07 -->
+
+            <article class="project">
+
+                <div class="project-number">07</div>
+
+                <h3>PDF Tools</h3>
+
+                <p>
+                    A collection of browser-based PDF utilities for
+                    working with PDF files.
+                </p>
+
+                <div class="project-links">
+
+                    <a
+                        href="https://project3421699.github.io/pdf-tools/"
+                        target="_blank"
+                    >
+                        Live Demo
+                    </a>
 
-<a
-href="https://dev-l-k.github.io/Kerala-Current-Bill/"
-target="_blank"
-class="project-link demo">
-🌐 Live Demo
-</a>
+                    <a
+                        href="https://github.com/project3421699/pdf-tools"
+                        target="_blank"
+                    >
+                        <img
+                            class="link-logo"
+                            src="https://cdn.simpleicons.org/github/ffffff"
+                            alt="GitHub"
+                        >
+                        GitHub
+                    </a>
+
+                </div>
 
-<a
-href="https://github.com/dev-l-k/Kerala-Current-Bill"
-target="_blank"
-class="project-link github">
-GitHub
-</a>
+            </article>
+
+            <!-- 08 -->
+
+            <article class="project">
+
+                <div class="project-number">08</div>
+
+                <h3>LUDO</h3>
+
+                <p>
+                    A browser-based LUDO game with interactive gameplay
+                    and a modern game interface.
+                </p>
+
+                <div class="project-links">
 
-</div>
+                    <a
+                        href="https://ludo-by-privatedart.vercel.app"
+                        target="_blank"
+                    >
+                        <img
+                            class="link-logo"
+                            src="https://cdn.simpleicons.org/vercel/ffffff"
+                            alt="Vercel"
+                        >
+                        Live Demo
+                    </a>
 
-</article>
+                    <a
+                        href="https://github.com/project3421699/LUDO"
+                        target="_blank"
+                    >
+                        <img
+                            class="link-logo"
+                            src="https://cdn.simpleicons.org/github/ffffff"
+                            alt="GitHub"
+                        >
+                        GitHub
+                    </a>
+
+                </div>
+
+            </article>
 
-<article class="project">
+            <!-- 09 -->
 
-<div class="project-head">
-<div class="project-icon">📚</div>
-<span class="project-number">05</span>
-</div>
+            <article class="project">
 
-<h3>StudyMate</h3>
+                <div class="project-number">09</div>
 
-<p>
-Study companion Android App. Designed for Students.
-</p>
+                <h3>IoT Class Science Fair</h3>
 
-<div class="tags">
-<span class="tag">Kotlin</span>
-<span class="tag">AI</span>
-<span class="tag">Android</span>
-</div>
+                <p>
+                    An IoT-focused science fair project combining
+                    hardware experiments and software.
+                </p>
 
-<div class="project-links">
+                <div class="project-links">
 
-<a
-href="https://dev-l-k.github.io/APKs/"
-target="_blank"
-class="project-link demo">
-Install App
-</a>
+                    <a
+                        href="https://github.com/dev-l-k/IOT-Class-Science-Fair-"
+                        target="_blank"
+                    >
+                        <img
+                            class="link-logo"
+                            src="https://cdn.simpleicons.org/github/ffffff"
+                            alt="GitHub"
+                        >
+                        GitHub
+                    </a>
 
-<a
-href="https://github.com/test3421699/StudyMateV2"
-target="_blank"
-class="project-link github">
-GitHub
-</a>
+                </div>
 
-</div>
+            </article>
 
-</article>
+            <!-- 10 -->
+
+            <article class="project">
 
-<!-- SHORTURL -->
+                <div class="project-number">10</div>
 
-<article class="project">
+                <h3>BT</h3>
 
-<div class="project-head">
-<div class="project-icon">🔗</div>
-<span class="project-number">06</span>
-</div>
+                <p>
+                    An Android project focused on Bluetooth-related
+                    functionality and experimentation.
+                </p>
 
-<h3>ShortUrl</h3>
+                <div class="project-links">
 
-<p>
-Modern URL shortening web application with
-a deployed Vercel interface.
-</p>
+                    <a
+                        href="https://dev-l-k.github.io/APKs"
+                        target="_blank"
+                    >
+                        Live Demo
+                    </a>
 
-<div class="tags">
-<span class="tag">HTML</span>
-<span class="tag">CSS</span>
-<span class="tag">JavaScript</span>
-<span class="tag">Vercel</span>
-</div>
+                    <a
+                        href="https://github.com/test3421699/BT"
+                        target="_blank"
+                    >
+                        <img
+                            class="link-logo"
+                            src="https://cdn.simpleicons.org/github/ffffff"
+                            alt="GitHub"
+                        >
+                        GitHub
+                    </a>
 
-<div class="project-links">
+                </div>
 
-<a
-href="https://short-url-one-ochre.vercel.app"
-target="_blank"
-class="project-link demo">
-▲ Live Demo
-</a>
+            </article>
 
-<a
-href="https://github.com/test3421699/ShortUrl"
-target="_blank"
-class="project-link github">
-GitHub
-</a>
+            <!-- 11 -->
 
-</div>
+            <article class="project">
 
-</article>
+                <div class="project-number">11</div>
 
+                <h3>QR Code Scanner</h3>
 
-<!-- CHESS -->
+                <p>
+                    An Android QR code scanning application built for
+                    quickly scanning and processing QR codes.
+                </p>
 
-<article class="project">
+                <div class="project-links">
 
-<div class="project-head">
-<div class="project-icon">♟️</div>
-<span class="project-number">07</span>
-</div>
+                    <a
+                        href="https://github.com/test3421699/QrCodeScanner"
+                        target="_blank"
+                    >
+                        <img
+                            class="link-logo"
+                            src="https://cdn.simpleicons.org/github/ffffff"
+                            alt="GitHub"
+                        >
+                        GitHub
+                    </a>
 
-<h3>Chess Royale</h3>
+                </div>
 
-<p>
-Browser chess project with AI gameplay,
-multiple difficulty levels and advanced chess logic.
-</p>
+            </article>
 
-<div class="tags">
-<span class="tag">HTML</span>
-<span class="tag">CSS</span>
-<span class="tag">JavaScript</span>
-<span class="tag">Chess AI</span>
-</div>
+            <!-- 12 -->
 
-<div class="project-links">
+            <article class="project">
 
-<a
-href="https://chess-by-privatedart.vercel.app"
-target="_blank"
-class="project-link demo">
-▲ Live Demo
-</a>
+                <div class="project-number">12</div>
 
-<a
-href="https://github.com/project3421699/Chess2.0"
-target="_blank"
-class="project-link github">
-GitHub
-</a>
+                <h3>Fast — Aero Speedtest</h3>
 
-</div>
+                <p>
+                    A browser-based internet speed testing project for
+                    checking network performance.
+                </p>
 
-</article>
+                <div class="project-links">
 
+                    <a
+                        href="https://project974403.github.io/Fast/"
+                        target="_blank"
+                    >
+                        Live Demo
+                    </a>
 
-<!-- PDF TOOLS -->
+                    <a
+                        href="https://github.com/project974403/Fast"
+                        target="_blank"
+                    >
+                        <img
+                            class="link-logo"
+                            src="https://cdn.simpleicons.org/github/ffffff"
+                            alt="GitHub"
+                        >
+                        GitHub
+                    </a>
 
-<article class="project">
+                </div>
 
-<div class="project-head">
-<div class="project-icon">📄</div>
-<span class="project-number">08</span>
-</div>
+            </article>
 
-<h3>PDF Tools</h3>
+        </div>
 
-<p>
-Browser-based PDF utilities designed to perform
-document operations directly from the web interface.
-</p>
-
-<div class="tags">
-<span class="tag">HTML</span>
-<span class="tag">CSS</span>
-<span class="tag">JavaScript</span>
-<span class="tag">PDF</span>
-</div>
-
-<div class="project-links">
-
-<a
-href="https://project3421699.github.io/pdf-tools/"
-target="_blank"
-class="project-link demo">
-🌐 Live Demo
-</a>
-
-<a
-href="https://github.com/project3421699/pdf-tools"
-target="_blank"
-class="project-link github">
-GitHub
-</a>
-
-</div>
-
-</article>
-
-
-<!-- LUDO -->
-
-<article class="project">
-
-<div class="project-head">
-<div class="project-icon">🎲</div>
-<span class="project-number">09</span>
-</div>
-
-<h3>LUDO</h3>
-
-<p>
-Interactive browser-based Ludo game project.
-</p>
-
-<div class="tags">
-<span class="tag">HTML</span>
-<span class="tag">CSS</span>
-<span class="tag">JavaScript</span>
-<span class="tag">Game</span>
-</div>
-
-<div class="project-links">
-
-<a
-href="https://ludo-by-privatedart.vercel.app"
-target="_blank"
-class="project-link demo">
-▲ Live Demo
-</a>
-
-<a
-href="https://github.com/project3421699/LUDO"
-target="_blank"
-class="project-link github">
-GitHub
-</a>
-
-</div>
-
-</article>
-
-
-<!-- IOT -->
-
-<article class="project">
-
-<div class="project-head">
-<div class="project-icon">🔌</div>
-<span class="project-number">10</span>
-</div>
-
-<h3>IoT Class Science Fair</h3>
-
-<p>
-IoT and electronics project created for a
-science-fair/classroom technology project.
-</p>
-
-<div class="tags">
-<span class="tag">IoT</span>
-<span class="tag">Python</span>
-<span class="tag">Electronics</span>
-</div>
-
-<div class="project-links single">
-
-<a
-href="https://github.com/dev-l-k/IOT-Class-Science-Fair-"
-target="_blank"
-class="project-link github">
-💻 GitHub
-</a>
-
-</div>
-
-</article>
-
-
-<!-- BT -->
-
-<article class="project">
-
-<div class="project-head">
-<div class="project-icon">📱</div>
-<span class="project-number">11</span>
-</div>
-
-<h3>BT</h3>
-
-<p>
-Mobile application development project
-focused on Bluetooth-related functionality.
-</p>
-
-<div class="tags">
-<span class="tag">Mobile</span>
-<span class="tag">Bluetooth</span>
-<span class="tag">Android</span>
-</div>
-
-<div class="project-links">
-<a
-href="https://dev-l-k.github.io/APKs"
-target="_blank"
-class="project-link demo">
-Install App
-</a>
-<a
-href="https://github.com/test3421699/BT"
-target="_blank"
-class="project-link github">
-💻 GitHub
-</a>
-
-</div>
-
-</article>
-
-
-<!-- QR CODE -->
-
-<article class="project">
-
-<div class="project-head">
-<div class="project-icon">📷</div>
-<span class="project-number">12</span>
-</div>
-
-<h3>QR Code Scanner</h3>
-
-<p>
-QR code scanning application project for
-mobile development.
-</p>
-
-<div class="tags">
-<span class="tag">Android</span>
-<span class="tag">QR</span>
-<span class="tag">Scanner</span>
-</div>
-
-<div class="project-links single">
-
-<a
-href="https://github.com/test3421699/QrCodeScanner"
-target="_blank"
-class="project-link github">
-💻 GitHub
-</a>
-
-</div>
-
-</article>
-
-
-<!-- FAST / AERO SPEEDTEST -->
-
-<article class="project fast">
-
-<div class="project-head">
-<div class="project-icon">🚀</div>
-<span class="project-number">13</span>
-</div>
-
-<span class="fast-badge">
-AERO SPEEDTEST
-</span>
-
-<h3>Fast</h3>
-
-<p>
-Premium client-side internet speed test with
-download/upload measurements, ping, jitter,
-real-time graphs, network quality diagnostics,
-test history, CSV export and share cards.
-</p>
-
-<div class="tags">
-<span class="tag">JavaScript</span>
-<span class="tag">HTML5</span>
-<span class="tag">CSS3</span>
-<span class="tag">Cloudflare</span>
-<span class="tag">Canvas</span>
-</div>
-
-<div class="project-links">
-
-<a
-href="https://project974403.github.io/Fast/"
-target="_blank"
-class="project-link demo">
-🌐 Live Demo
-</a>
-
-<a
-href="https://github.com/project974403/Fast"
-target="_blank"
-class="project-link github">
-GitHub
-</a>
-
-</div>
-
-</article>
-
-
-</div>
+    </div>
 
 </section>
 
-
-<!-- ================= GITHUB ================= -->
+<!-- GITHUB -->
 
 <section id="github">
 
-<div class="section-tag">
-04 — GITHUB
-</div>
+    <div class="container">
 
-<h2 class="section-title">
-My GitHub ecosystem.
-</h2>
+        <div class="tag">04 — GitHub</div>
 
-<p class="section-description">
-Projects and experiments across my four GitHub accounts.
-</p>
+        <h2 class="title">
+            Find me on GitHub.
+        </h2>
 
-<div class="accounts">
+        <p class="description">
+            Different accounts for different projects and experiments.
+        </p>
 
+        <div class="accounts">
 
-<div class="account">
+            <a
+                href="https://github.com/dev-l-k"
+                target="_blank"
+                class="account"
+            >
 
-<h3>💻 dev-l-k</h3>
+                <div class="account-icon">
+                    <img
+                        class="github-logo"
+                        src="https://cdn.simpleicons.org/github/ffffff"
+                        alt="GitHub"
+                    >
+                </div>
 
-<p>
-Web projects, games, utilities and IoT experiments.
-</p>
+                <div>
+                    <h3>dev-l-k</h3>
+                    <p>Main development account</p>
+                </div>
 
-<a
-href="https://github.com/dev-l-k"
-target="_blank">
-View Profile →
-</a>
+            </a>
 
-</div>
+            <a
+                href="https://github.com/test3421699"
+                target="_blank"
+                class="account"
+            >
 
+                <div class="account-icon">
+                    <img
+                        class="github-logo"
+                        src="https://cdn.simpleicons.org/github/ffffff"
+                        alt="GitHub"
+                    >
+                </div>
 
-<div class="account">
+                <div>
+                    <h3>test3421699</h3>
+                    <p>Apps and experiments</p>
+                </div>
 
-<h3>🧪 test3421699</h3>
+            </a>
 
-<p>
-Application experiments, mobile projects and tools.
-</p>
+            <a
+                href="https://github.com/project3421699"
+                target="_blank"
+                class="account"
+            >
 
-<a
-href="https://github.com/test3421699"
-target="_blank">
-View Profile →
-</a>
+                <div class="account-icon">
+                    <img
+                        class="github-logo"
+                        src="https://cdn.simpleicons.org/github/ffffff"
+                        alt="GitHub"
+                    >
+                </div>
 
-</div>
+                <div>
+                    <h3>project3421699</h3>
+                    <p>Games and web projects</p>
+                </div>
 
+            </a>
 
-<div class="account">
+            <a
+                href="https://github.com/project974403"
+                target="_blank"
+                class="account"
+            >
 
-<h3>🚀 project3421699</h3>
+                <div class="account-icon">
+                    <img
+                        class="github-logo"
+                        src="https://cdn.simpleicons.org/github/ffffff"
+                        alt="GitHub"
+                    >
+                </div>
 
-<p>
-Games, browser applications and productivity tools.
-</p>
+                <div>
+                    <h3>project974403</h3>
+                    <p>Additional projects</p>
+                </div>
 
-<a
-href="https://github.com/project3421699"
-target="_blank">
-View Profile →
-</a>
+            </a>
 
-</div>
+        </div>
 
-
-<div class="account">
-
-<h3>⚡ project974403</h3>
-
-<p>
-JavaScript web experiments and performance-focused
-browser applications.
-</p>
-
-<a
-href="https://github.com/project974403"
-target="_blank">
-View Profile →
-</a>
-
-</div>
-
-
-</div>
+    </div>
 
 </section>
 
-
-<!-- ================= CONTACT ================= -->
+<!-- CONTACT -->
 
 <section id="contact">
 
-<div class="contact-box">
+    <div class="container">
 
-<div class="section-tag">
-05 — CONTACT
-</div>
+        <div class="contact-box">
 
-<h2 class="section-title">
-Let's build something.
-</h2>
+            <div class="tag">05 — Contact</div>
 
-<p class="section-description">
+            <h2>Have an idea?</h2>
 
-Interested in my projects or want to connect?
-Check out my GitHub profiles or send me an email.
+            <p>
+                Whether it's a website, app, game or experiment,
+                I'm always interested in building something new.
+            </p>
 
-</p>
+            <div class="contact-links">
 
-<div class="contact-links">
+                <a
+                    href="mailto:devlkakkoth545@gmail.com"
+                    class="btn primary"
+                >
+                    Email Me
+                </a>
 
-<a
-href="mailto:devlkakkoth545@gmail.com"
-class="btn btn-primary">
-📧 Email Me
-</a>
+                <a
+                    href="https://github.com/dev-l-k"
+                    target="_blank"
+                    class="btn"
+                >
+                    GitHub
+                </a>
 
-<a
-href="https://github.com/dev-l-k"
-target="_blank"
-class="btn btn-secondary">
-💻 GitHub
-</a>
+            </div>
 
-</div>
+        </div>
 
-</div>
+    </div>
 
 </section>
 
-
-<!-- ================= FOOTER ================= -->
+</main>
 
 <footer>
-
-<p>
-Designed & Built by
-<span>DEV L KAKKOTH</span>
-🚀
-</p>
-
-<br>
-
-<p>
-Learn • Experiment • Build • Debug • Improve • Ship
-</p>
-
+    © <span id="year"></span> DEV L KAKKOTH · Built with HTML, CSS and JavaScript
 </footer>
-
 
 <script>
 
-/* MOBILE MENU */
+/* MENU */
 
-function toggleMenu(){
+const menu = document.getElementById("menu");
+const navLinks = document.getElementById("navLinks");
 
-document
-.getElementById("navLinks")
-.classList
-.toggle("active");
+menu.onclick = () => {
+    menu.classList.toggle("active");
+    navLinks.classList.toggle("active");
+};
 
-}
+document.querySelectorAll(".nav-links a").forEach(link => {
 
+    link.onclick = () => {
+        menu.classList.remove("active");
+        navLinks.classList.remove("active");
+    };
 
-/* TYPING EFFECT */
+});
 
-const texts=[
-"Student Developer",
-"Web Developer",
-"AI-Assisted Builder",
-"Browser Game Developer",
-"IoT Experimenter",
-"JavaScript Developer",
-"Problem Solver"
+document.onclick = e => {
+
+    if(
+        innerWidth <= 700 &&
+        navLinks.classList.contains("active") &&
+        !navLinks.contains(e.target) &&
+        !menu.contains(e.target)
+    ){
+        menu.classList.remove("active");
+        navLinks.classList.remove("active");
+    }
+
+};
+
+/* TYPING */
+
+const words = [
+    "Student Developer",
+    "Web Developer",
+    "AI-Assisted Builder",
+    "Browser Game Developer",
+    "IoT Experimenter",
+    "JavaScript Developer",
+    "Problem Solver"
 ];
 
-let textIndex=0;
-let charIndex=0;
-let deleting=false;
+const typing = document.getElementById("typing");
 
-const typing=
-document.getElementById("typing");
+let word = 0;
+let char = 0;
+let deleting = false;
 
-function typeText(){
+function type(){
 
-const text=texts[textIndex];
+    const current = words[word];
 
-if(!deleting){
+    if(!deleting){
 
-typing.textContent=
-text.substring(0,charIndex+1);
+        char++;
+        typing.textContent = current.slice(0,char);
 
-charIndex++;
+        if(char === current.length){
 
-if(charIndex===text.length){
+            deleting = true;
 
-deleting=true;
+            setTimeout(type,1500);
 
-setTimeout(typeText,1200);
+            return;
+        }
 
-return;
+    }else{
+
+        char--;
+        typing.textContent = current.slice(0,char);
+
+        if(char === 0){
+
+            deleting = false;
+            word = (word + 1) % words.length;
+
+        }
+
+    }
+
+    setTimeout(
+        type,
+        deleting ? 45 : 85
+    );
 
 }
 
-}else{
+type();
 
-typing.textContent=
-text.substring(0,charIndex-1);
+/* CURSOR LIGHT */
 
-charIndex--;
+document.onpointermove = e => {
 
-if(charIndex===0){
+    if(innerWidth > 700){
 
-deleting=false;
+        document.documentElement.style.setProperty(
+            "--mx",
+            e.clientX + "px"
+        );
 
-textIndex=
-(textIndex+1)%texts.length;
+        document.documentElement.style.setProperty(
+            "--my",
+            e.clientY + "px"
+        );
 
-}
+    }
 
-}
+};
 
-setTimeout(
-typeText,
-deleting?45:85
+/* SCROLL PROGRESS */
+
+const progress =
+    document.getElementById("progress");
+
+onscroll = () => {
+
+    const height =
+        document.documentElement.scrollHeight -
+        innerHeight;
+
+    progress.style.width =
+        scrollY / height * 100 + "%";
+
+};
+
+/* SCROLL REVEAL */
+
+const reveal =
+    document.querySelectorAll(
+        ".tag,.title,.description,.glass," +
+        ".focus,.tech,.project,.account,.contact-box"
+    );
+
+reveal.forEach((el,i) => {
+
+    el.classList.add("reveal");
+
+    el.style.setProperty(
+        "--delay",
+        i % 5 * 80 + "ms"
+    );
+
+});
+
+const revealObserver =
+    new IntersectionObserver(entries => {
+
+        entries.forEach(entry => {
+
+            if(entry.isIntersecting){
+
+                entry.target.classList.add("show");
+
+                revealObserver.unobserve(
+                    entry.target
+                );
+
+            }
+
+        });
+
+    },{
+        threshold:.12
+    });
+
+reveal.forEach(el =>
+    revealObserver.observe(el)
 );
 
+/* ACTIVE NAV */
+
+const sections =
+    document.querySelectorAll("section[id]");
+
+const links =
+    document.querySelectorAll(
+        '.nav-links a[href^="#"]'
+    );
+
+const sectionObserver =
+    new IntersectionObserver(entries => {
+
+        entries.forEach(entry => {
+
+            if(entry.isIntersecting){
+
+                links.forEach(link => {
+
+                    link.classList.toggle(
+                        "active",
+                        link.getAttribute("href") ===
+                        "#" + entry.target.id
+                    );
+
+                });
+
+            }
+
+        });
+
+    },{
+        rootMargin:"-35% 0px -55% 0px"
+    });
+
+sections.forEach(section =>
+    sectionObserver.observe(section)
+);
+
+/* CARD TILT */
+
+if(
+    matchMedia(
+        "(hover:hover) and (pointer:fine)"
+    ).matches
+){
+
+    document.querySelectorAll(".project")
+    .forEach(card => {
+
+        card.onpointermove = e => {
+
+            const box =
+                card.getBoundingClientRect();
+
+            const x =
+                (e.clientX - box.left) /
+                box.width - .5;
+
+            const y =
+                (e.clientY - box.top) /
+                box.height - .5;
+
+            card.style.transform =
+                `perspective(800px)
+                 rotateX(${-y * 4}deg)
+                 rotateY(${x * 4}deg)
+                 translateY(-8px)`;
+
+        };
+
+        card.onpointerleave = () => {
+            card.style.transform = "";
+        };
+
+    });
+
 }
 
-typeText();
+/* COUNTERS */
+
+const stats =
+    document.querySelectorAll(".stat h3");
+
+const counter =
+    new IntersectionObserver(entries => {
+
+        entries.forEach(entry => {
+
+            if(!entry.isIntersecting)
+                return;
+
+            const el = entry.target;
+
+            const match =
+                el.textContent.match(/^(\d+)(.*)$/);
+
+            if(!match)
+                return;
+
+            const target = +match[1];
+            const suffix = match[2];
+
+            let current = 0;
+
+            const timer =
+                setInterval(() => {
+
+                    current += Math.max(
+                        1,
+                        Math.ceil(target / 30)
+                    );
+
+                    if(current >= target){
+
+                        current = target;
+
+                        clearInterval(timer);
+                    }
+
+                    el.textContent =
+                        current + suffix;
+
+                },35);
+
+            counter.unobserve(el);
+
+        });
+
+    },{
+        threshold:.7
+    });
+
+stats.forEach(el =>
+    counter.observe(el)
+);
+
+/* YEAR */
+
+document.getElementById("year").textContent =
+    new Date().getFullYear();
 
 
-/* CLOSE MOBILE MENU */
+/* ==========================================
+   PARTICLE BACKGROUND
+========================================== */
 
-document
-.querySelectorAll(".nav-links a")
-.forEach(link=>{
+const canvas =
+    document.getElementById("particles");
 
-link.addEventListener("click",()=>{
+const ctx =
+    canvas.getContext("2d");
 
-document
-.getElementById("navLinks")
-.classList
-.remove("active");
+let particles = [];
+let mouse = {
+    x:null,
+    y:null,
+    active:false
+};
 
-});
+function resizeCanvas(){
 
-});
+    canvas.width =
+        window.innerWidth *
+        devicePixelRatio;
+
+    canvas.height =
+        window.innerHeight *
+        devicePixelRatio;
+
+    canvas.style.width =
+        window.innerWidth + "px";
+
+    canvas.style.height =
+        window.innerHeight + "px";
+
+    ctx.setTransform(
+        devicePixelRatio,
+        0,
+        0,
+        devicePixelRatio,
+        0,
+        0
+    );
+
+    createParticles();
+}
+
+function createParticles(){
+
+    particles = [];
+
+    const count =
+        innerWidth < 600 ? 45 : 85;
+
+    for(let i = 0;i < count;i++){
+
+        particles.push({
+            x:Math.random() * innerWidth,
+            y:Math.random() * innerHeight,
+
+            size:
+                Math.random() * 1.8 + .5,
+
+            speedX:
+                (Math.random() - .5) * .35,
+
+            speedY:
+                (Math.random() - .5) * .35,
+
+            alpha:
+                Math.random() * .5 + .2
+        });
+
+    }
+
+}
+
+function drawParticles(){
+
+    ctx.clearRect(
+        0,
+        0,
+        innerWidth,
+        innerHeight
+    );
+
+    particles.forEach(p => {
+
+        p.x += p.speedX;
+        p.y += p.speedY;
+
+        if(p.x < -10)
+            p.x = innerWidth + 10;
+
+        if(p.x > innerWidth + 10)
+            p.x = -10;
+
+        if(p.y < -10)
+            p.y = innerHeight + 10;
+
+        if(p.y > innerHeight + 10)
+            p.y = -10;
+
+        /* Mouse interaction */
+
+        if(mouse.active){
+
+            const dx =
+                p.x - mouse.x;
+
+            const dy =
+                p.y - mouse.y;
+
+            const distance =
+                Math.sqrt(dx * dx + dy * dy);
+
+            if(distance < 120){
+
+                const force =
+                    (120 - distance) / 120;
+
+                p.x +=
+                    dx / distance *
+                    force * .8;
+
+                p.y +=
+                    dy / distance *
+                    force * .8;
+            }
+
+        }
+
+        ctx.beginPath();
+
+        ctx.arc(
+            p.x,
+            p.y,
+            p.size,
+            0,
+            Math.PI * 2
+        );
+
+        ctx.fillStyle =
+            `rgba(56,189,248,${p.alpha})`;
+
+        ctx.fill();
+
+    });
+
+    /* Connecting lines */
+
+    for(
+        let i = 0;
+        i < particles.length;
+        i++
+    ){
+
+        for(
+            let j = i + 1;
+            j < particles.length;
+            j++
+        ){
+
+            const a = particles[i];
+            const b = particles[j];
+
+            const dx =
+                a.x - b.x;
+
+            const dy =
+                a.y - b.y;
+
+            const distance =
+                Math.sqrt(dx * dx + dy * dy);
+
+            if(distance < 105){
+
+                const opacity =
+                    (1 - distance / 105) * .16;
+
+                ctx.beginPath();
+
+                ctx.moveTo(
+                    a.x,
+                    a.y
+                );
+
+                ctx.lineTo(
+                    b.x,
+                    b.y
+                );
+
+                ctx.strokeStyle =
+                    `rgba(56,189,248,${opacity})`;
+
+                ctx.lineWidth = .6;
+
+                ctx.stroke();
+            }
+
+        }
+
+    }
+
+    requestAnimationFrame(drawParticles);
+}
+
+window.addEventListener(
+    "resize",
+    resizeCanvas
+);
+
+window.addEventListener(
+    "pointermove",
+    e => {
+
+        if(innerWidth > 700){
+
+            mouse.x = e.clientX;
+            mouse.y = e.clientY;
+            mouse.active = true;
+
+        }
+
+    }
+);
+
+window.addEventListener(
+    "pointerleave",
+    () => {
+        mouse.active = false;
+    }
+);
+
+resizeCanvas();
+drawParticles();
 
 </script>
 
