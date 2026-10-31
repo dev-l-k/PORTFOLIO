@@ -2779,7 +2779,7 @@ footer.site-footer {
     /* ==========================================================================
        2. THEME ACCENT SWITCHER
        ========================================================================== */
-    const themes = ['cyan', 'emerald', 'violet', 'amber'];
+    const themes = ['amber', 'emerald', 'violet', 'cyan'];
     let currentThemeIdx = 0;
     const themeBtn = document.getElementById('themeBtn');
 
@@ -2788,7 +2788,7 @@ footer.site-footer {
         const savedTheme = localStorage.getItem('devlk_theme');
         if (savedTheme && themes.includes(savedTheme)) {
             currentThemeIdx = themes.indexOf(savedTheme);
-            if (savedTheme !== 'cyan') {
+            if (savedTheme !== 'amber') {
                 document.documentElement.setAttribute('data-theme', savedTheme);
             }
         }
