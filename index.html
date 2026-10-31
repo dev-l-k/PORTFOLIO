@@ -1,6 +1,6 @@
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="amber">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -2716,6 +2716,14 @@ footer.site-footer {
 // Encapsulate app logic safely
 (function() {
     'use strict';
+    
+    // One-time reset so everyone sees the new default
+try {
+    if (localStorage.getItem('theme_migrated_v2') !== '1') {
+        localStorage.removeItem('devlk_theme');
+        localStorage.setItem('theme_migrated_v2', '1');
+    }
+} catch (e) {}
 
     /* ==========================================================================
        1. WEB AUDIO SYNTHESIZER (MICRO INTERACTION SOUNDS)
@@ -2788,7 +2796,7 @@ footer.site-footer {
         const savedTheme = localStorage.getItem('devlk_theme');
         if (savedTheme && themes.includes(savedTheme)) {
             currentThemeIdx = themes.indexOf(savedTheme);
-            if (savedTheme !== 'amber') {
+            if (savedTheme !== 'cyan') {
                 document.documentElement.setAttribute('data-theme', savedTheme);
             }
         }
